@@ -188,16 +188,28 @@ if [ -n "$BASH_VERSION" ]; then
 	export HISTCONTROL=erasedups:ignoreboth
 
 	export HISTIGNORE=
-	export HISTIGNORE=$HISTIGNORE:exit
-	export HISTIGNORE=$HISTIGNORE:'gi tl10'
-	export HISTIGNORE=$HISTIGNORE:'gi tst'
-	export HISTIGNORE=$HISTIGNORE:'gitdis'
-	export HISTIGNORE=$HISTIGNORE:'gitdiw'
-	export HISTIGNORE=$HISTIGNORE:"history *"
-	export HISTIGNORE=$HISTIGNORE:k
-	export HISTIGNORE=$HISTIGNORE:ll
-	export HISTIGNORE=$HISTIGNORE:ls
-	export HISTIGNORE=$HISTIGNORE:'ls -al'
+	export HISTIGNORE+='cd:'
+	export HISTIGNORE+='exit:'
+	export HISTIGNORE+='gi tl10:'
+	export HISTIGNORE+='gi tst:'
+	export HISTIGNORE+='giot st:'
+	export HISTIGNORE+='git diff:'
+	export HISTIGNORE+='git dis:'
+	export HISTIGNORE+='git diw:'
+	export HISTIGNORE+='git piush:'
+	export HISTIGNORE+='git push:'
+	export HISTIGNORE+='git st:'
+	export HISTIGNORE+='gitdis:'
+	export HISTIGNORE+='gitdiw:'
+	export HISTIGNORE+='gut st:'
+	export HISTIGNORE+="history:"
+	export HISTIGNORE+="history *:"
+	export HISTIGNORE+='k:'
+	export HISTIGNORE+='kgit st:'
+	export HISTIGNORE+='ll:'
+	export HISTIGNORE+='ls:'
+	export HISTIGNORE+='ls -al:'
+	export HISTIGNORE+='pwd:'
 fi
 
 if [ -n "$ZSH_VERSION" ]; then
@@ -206,28 +218,37 @@ if [ -n "$ZSH_VERSION" ]; then
 	setopt NO_AUTO_MENU
 	setopt NO_BEEP
 
-	setopt HIST_
-	setopt HIST_
-	setopt HIST_
-	setopt HIST_
-	setopt HIST_
-	setopt HIST_
-	setopt HIST_
+	setopt HIST_FIND_NO_DUPS
+	setopt HIST_IGNORE_ALL_DUPS
+	setopt HIST_IGNORE_SPACE
+	setopt HIST_REDUCE_BLANKS
+	setopt HIST_SAVE_NO_DUPS
+	setopt HIST_VERIFY
+	setopt PROMPT_SUBST
 
 	HISTORY_IGNORE="("
 	HISTORY_IGNORE+="cd|"
 	HISTORY_IGNORE+="exit|"
+	HISTORY_IGNORE+="gi tl10|"
 	HISTORY_IGNORE+="gi tst|"
 	HISTORY_IGNORE+="giot st|"
 	HISTORY_IGNORE+="git diff|"
 	HISTORY_IGNORE+="git dis|"
 	HISTORY_IGNORE+="git diw|"
 	HISTORY_IGNORE+="git piush|"
+	HISTORY_IGNORE+="git push|"
 	HISTORY_IGNORE+="git st|"
+	HISTORY_IGNORE+="gitdis|"
+	HISTORY_IGNORE+="gitdiw|"
 	HISTORY_IGNORE+="gut st|"
+	HISTORY_IGNORE+="kgit st|"
+	HISTORY_IGNORE+="history|"
+	HISTORY_IGNORE+="history *|"
+	HISTORY_IGNORE+="k|"
 	HISTORY_IGNORE+="kgit st|"
 	HISTORY_IGNORE+="ll|"
 	HISTORY_IGNORE+="ls|"
+	HISTORY_IGNORE+="ls -al|"
 	HISTORY_IGNORE+="pwd|"
 	HISTORY_IGNORE+=")"
 fi
