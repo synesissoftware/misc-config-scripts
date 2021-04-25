@@ -118,23 +118,26 @@ fi
 
 # PATH
 
-if [ -d $HOME/bin ]; then
+POTENTIAL_LOCAL_PATHS_=()
+POTENTIAL_LOCAL_PATHS_+=($HOME/.bin)
+POTENTIAL_LOCAL_PATHS_+=($HOME/bin)
+POTENTIAL_LOCAL_PATHS_+=(:/Applications/Xcode.app/Contents/Developer/usr/bin)
 
-	PATH=$HOME/bin:$PATH
+for p in ${POTENTIAL_LOCAL_PATHS_[@]}
+do
+
+	if [[ ":" == ${p:0:1} ]]
+	then
+
+		PATH=$PATH:${p:1}
+	else
+
+		PATH=$p:$PATH
+	fi
 	export PATH
-fi
+done
 
-if [ -d $HOME/.bin ]; then
 
-	PATH=$HOME/.bin:$PATH
-	export PATH
-fi
-
-if [ -d /Applications/Xcode.app/Contents/Developer/usr/bin/ ]; then
-
-    PATH=$PATH:/Applications/Xcode.app/Contents/Developer/usr/bin
-    export PATH
-fi
 
 # prompt
 
