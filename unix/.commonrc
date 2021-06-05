@@ -4,7 +4,7 @@
 # Purpose:      A based .bashrc / .zshrc
 #
 # Created:      Many, many years ago
-# Updated:      25th April 2021
+# Updated:      5th June 2021
 #
 # Author:       Matt Wilson
 #
@@ -166,7 +166,7 @@ fi
 # ######################################
 # functions
 
-if [ -d $/HOME/.bin ]; then
+if [ -d $HOME/.bin ]; then
 
 	for f in ~/.bin/fn_*sh
 	do
