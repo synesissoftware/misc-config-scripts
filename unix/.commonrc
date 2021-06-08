@@ -1,10 +1,10 @@
 # ######################################################################### #
 # File:         unix/.commonrc
 #
-# Purpose:      A based .bashrc / .zshrc
+# Purpose:      A base .bashrc / .zshrc
 #
 # Created:      Many, many years ago
-# Updated:      5th June 2021
+# Updated:      8th June 2021
 #
 # Author:       Matt Wilson
 #
@@ -199,13 +199,13 @@ if [ -n "$BASH_VERSION" ]; then
 	export HISTIGNORE+='gitdis:'
 	export HISTIGNORE+='gitdiw:'
 	export HISTIGNORE+='gut st:'
-	export HISTIGNORE+="history:"
-	export HISTIGNORE+="history *:"
+	export HISTIGNORE+='history *:'
+	export HISTIGNORE+='history:'
 	export HISTIGNORE+='k:'
 	export HISTIGNORE+='kgit st:'
 	export HISTIGNORE+='ll:'
-	export HISTIGNORE+='ls:'
 	export HISTIGNORE+='ls -al:'
+	export HISTIGNORE+='ls:'
 	export HISTIGNORE+='pwd:'
 fi
 
@@ -238,14 +238,14 @@ if [ -n "$ZSH_VERSION" ]; then
 	HISTORY_IGNORE+="gitdis|"
 	HISTORY_IGNORE+="gitdiw|"
 	HISTORY_IGNORE+="gut st|"
-	HISTORY_IGNORE+="kgit st|"
-	HISTORY_IGNORE+="history|"
 	HISTORY_IGNORE+="history *|"
-	HISTORY_IGNORE+="k|"
+	HISTORY_IGNORE+="history|"
 	HISTORY_IGNORE+="kgit st|"
+	HISTORY_IGNORE+="kgit st|"
+	HISTORY_IGNORE+="k|"
 	HISTORY_IGNORE+="ll|"
-	HISTORY_IGNORE+="ls|"
 	HISTORY_IGNORE+="ls -al|"
+	HISTORY_IGNORE+="ls|"
 	HISTORY_IGNORE+="pwd|"
 	HISTORY_IGNORE+=")"
 fi
