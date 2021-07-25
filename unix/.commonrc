@@ -4,7 +4,7 @@
 # Purpose:      A base .bashrc / .zshrc
 #
 # Created:      Many, many years ago
-# Updated:      8th June 2021
+# Updated:      26th July 2021
 #
 # Author:       Matt Wilson
 #
@@ -91,6 +91,34 @@ fi
 
 # ######################################
 # environment variables
+
+# custom variables
+
+if [ -f $HOME/.common_environment_variables ]; then
+
+	echo -e "\tLoading custom environment variables from $HOME/.common_environment_variables"
+
+	. $HOME/.common_environment_variables
+elif [ -n "$BASH_VERSION" ]; then
+
+	if [ -f $HOME/.bash_environment_variables ]; then
+
+		echo -e "\tLoading custom environment variables from $HOME/.bash_environment_variables"
+
+		. $HOME/.bash_environment_variables
+	fi
+elif [ -n "$ZSH_VERSION" ]; then
+
+	if [ -f $HOME/.zsh_environment_variables ]; then
+
+		echo -e "\tLoading custom environment variables from $HOME/.zsh_environment_variables"
+
+		. $HOME/.zsh_environment_variables
+	fi
+else
+
+	echo "shell not recognised as either 'bash' or 'zsh'"
+fi
 
 # GOPATH
 
