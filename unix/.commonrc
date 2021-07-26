@@ -248,6 +248,7 @@ if [ -n "$ZSH_VERSION" ]; then
 	setopt LIST_ROWS_FIRST
 	setopt NO_AUTO_MENU
 	setopt NO_BEEP
+	setopt PROMPT_SUBST
 
 	setopt HIST_FIND_NO_DUPS
 	setopt HIST_IGNORE_ALL_DUPS
@@ -255,7 +256,6 @@ if [ -n "$ZSH_VERSION" ]; then
 	setopt HIST_REDUCE_BLANKS
 	setopt HIST_SAVE_NO_DUPS
 	setopt HIST_VERIFY
-	setopt PROMPT_SUBST
 
 	HISTORY_IGNORE="("
 	HISTORY_IGNORE+="cd|"
