@@ -291,5 +291,34 @@ if [ -n "$ZSH_VERSION" ]; then
 	export HISTORY_IGNORE
 fi
 
+# ######################################
+# user customisations
+
+if [ -f $HOME/.common_custom_rc ]; then
+
+	echo -e "\tLoading custom settings from $HOME/.common_custom_rc"
+
+	. $HOME/.common_custom_rc
+elif [ -n "$BASH_VERSION" ]; then
+
+	if [ -f $HOME/.bash_custom_rc ]; then
+
+		echo -e "\tLoading custom settings from $HOME/.bash_custom_rc"
+
+		. $HOME/.bash_custom_rc
+	fi
+elif [ -n "$ZSH_VERSION" ]; then
+
+	if [ -f $HOME/.zsh_custom_rc ]; then
+
+		echo -e "\tLoading custom settings from $HOME/.zsh_custom_rc"
+
+		. $HOME/.zsh_custom_rc
+	fi
+else
+
+	echo "shell not recognised as either 'bash' or 'zsh'"
+fi
+
 # ############################## end of file ############################## #
 
