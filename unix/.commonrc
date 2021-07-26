@@ -149,17 +149,17 @@ if command -v do > /dev/null; then
 	if [[ "" != "$GOPATH" ]]; then
 
 		:
-	elif [[ -f ~/.gopath ]]; then
+	elif [[ -f $HOME/.gopath ]]; then
 
-		gopath=$(eval echo $(head -n 1 ~/.gopath))
+		gopath=$(eval echo $(head -n 1 $HOME/.gopath))
 
 		export GOPATH=$gopath
-	elif [[ -d ~/dev/go ]]; then
+	elif [[ -d $HOME/dev/go ]]; then
 
-		export GOPATH=~/dev/go
-	elif [[ -d ~/go ]]; then
+		export GOPATH=$HOME/dev/go
+	elif [[ -d $HOME/go ]]; then
 
-		export GOPATH=~/go
+		export GOPATH=$HOME/go
 	else
 
 		echo -e "WARNING: GOPATH not defined, and cannot be inferred: file ~/.gopath does not exist; directories ~/dev/go and ~/go do not exist"
@@ -224,7 +224,7 @@ fi
 
 if [ -d $HOME/.bin ]; then
 
-	for f in ~/.bin/fn_*sh
+	for f in $HOME/.bin/fn_*sh
 	do
 
 		source "$f"
