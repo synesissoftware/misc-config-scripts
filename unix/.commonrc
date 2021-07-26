@@ -214,33 +214,34 @@ fi
 
 set -o vi || export EDITOR=vi
 
+IGNORE_ELEMENTS_=()
+IGNORE_ELEMENTS_+=(cd)
+IGNORE_ELEMENTS_+=(exit)
+IGNORE_ELEMENTS_+=("git diff")
+IGNORE_ELEMENTS_+=("git dis")
+IGNORE_ELEMENTS_+=("git diw")
+IGNORE_ELEMENTS_+=("git pull")
+IGNORE_ELEMENTS_+=("git push")
+IGNORE_ELEMENTS_+=("git st")
+IGNORE_ELEMENTS_+=("git status")
+IGNORE_ELEMENTS_+=(history)
+IGNORE_ELEMENTS_+=("history *")
+IGNORE_ELEMENTS_+=(ll)
+IGNORE_ELEMENTS_+=(ls)
+IGNORE_ELEMENTS_+=("ls -al")
+iGNORE_ELEMENTS_+=(pwd)
+
 if [ -n "$BASH_VERSION" ]; then
 
 	export HISTCONTROL=erasedups:ignoreboth
 
-	export HISTIGNORE=
-	export HISTIGNORE+='cd:'
-	export HISTIGNORE+='exit:'
-	export HISTIGNORE+='gi tl10:'
-	export HISTIGNORE+='gi tst:'
-	export HISTIGNORE+='giot st:'
-	export HISTIGNORE+='git diff:'
-	export HISTIGNORE+='git dis:'
-	export HISTIGNORE+='git diw:'
-	export HISTIGNORE+='git piush:'
-	export HISTIGNORE+='git push:'
-	export HISTIGNORE+='git st:'
-	export HISTIGNORE+='gitdis:'
-	export HISTIGNORE+='gitdiw:'
-	export HISTIGNORE+='gut st:'
-	export HISTIGNORE+='history *:'
-	export HISTIGNORE+='history:'
-	export HISTIGNORE+='k:'
-	export HISTIGNORE+='kgit st:'
-	export HISTIGNORE+='ll:'
-	export HISTIGNORE+='ls -al:'
-	export HISTIGNORE+='ls:'
-	export HISTIGNORE+='pwd:'
+	HISTIGNORE=
+	for i in ${!IGNORE_ELEMENTS_[@]}
+	do
+
+		HISTIGNORE+=:${IGNORE_ELEMENTS_[$i]}
+	done
+	export HISTIGNORE
 fi
 
 if [ -n "$ZSH_VERSION" ]; then
@@ -258,30 +259,14 @@ if [ -n "$ZSH_VERSION" ]; then
 	setopt HIST_VERIFY
 
 	HISTORY_IGNORE="("
-	HISTORY_IGNORE+="cd|"
-	HISTORY_IGNORE+="exit|"
-	HISTORY_IGNORE+="gi tl10|"
-	HISTORY_IGNORE+="gi tst|"
-	HISTORY_IGNORE+="giot st|"
-	HISTORY_IGNORE+="git diff|"
-	HISTORY_IGNORE+="git dis|"
-	HISTORY_IGNORE+="git diw|"
-	HISTORY_IGNORE+="git piush|"
-	HISTORY_IGNORE+="git push|"
-	HISTORY_IGNORE+="git st|"
-	HISTORY_IGNORE+="gitdis|"
-	HISTORY_IGNORE+="gitdiw|"
-	HISTORY_IGNORE+="gut st|"
-	HISTORY_IGNORE+="history *|"
-	HISTORY_IGNORE+="history|"
-	HISTORY_IGNORE+="kgit st|"
-	HISTORY_IGNORE+="kgit st|"
-	HISTORY_IGNORE+="k|"
-	HISTORY_IGNORE+="ll|"
-	HISTORY_IGNORE+="ls -al|"
-	HISTORY_IGNORE+="ls|"
-	HISTORY_IGNORE+="pwd|"
+	let "lim_IGNORE_ELEMENTS_ = ${#IGNORE_ELEMENTS_} - 1"
+	for i in `seq 0 ${lim_IGNORE_ELEMENTS_}`
+	do
+
+		HISTORY_IGNORE+="|${IGNORE_ELEMENTS_[$i]}"
+	done
 	HISTORY_IGNORE+=")"
+	export HISTORY_IGNORE
 fi
 
 # ############################## end of file ############################## #
