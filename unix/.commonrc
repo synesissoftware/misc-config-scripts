@@ -121,7 +121,9 @@ if [ -f $HOME/.common_environment_variables ]; then
 	echo -e "\tLoading custom environment variables from $HOME/.common_environment_variables"
 
 	. $HOME/.common_environment_variables
-elif [ -n "$BASH_VERSION" ]; then
+fi
+
+if [ -n "$BASH_VERSION" ]; then
 
 	if [ -f $HOME/.bash_environment_variables ]; then
 
@@ -129,7 +131,9 @@ elif [ -n "$BASH_VERSION" ]; then
 
 		. $HOME/.bash_environment_variables
 	fi
-elif [ -n "$ZSH_VERSION" ]; then
+fi
+
+if [ -n "$ZSH_VERSION" ]; then
 
 	if [ -f $HOME/.zsh_environment_variables ]; then
 
@@ -137,9 +141,6 @@ elif [ -n "$ZSH_VERSION" ]; then
 
 		. $HOME/.zsh_environment_variables
 	fi
-else
-
-	echo "shell not recognised as either 'bash' or 'zsh'"
 fi
 
 # GOPATH
