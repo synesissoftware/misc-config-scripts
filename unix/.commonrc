@@ -42,6 +42,28 @@
 
 
 # ######################################
+# global definitions
+
+if false; then
+
+	:
+elif [ -n "$BASH_VERSION" ]; then
+
+	if [ -f /etc/bashrc ];then
+
+		echo -e "\tLoading global definitions from /etc/bashrc"
+
+		. /etc/bashrc
+	fi
+elif [ -n "$ZSH_VERSION" ]; then
+
+	: # zsh automatically brings in /etc/zshrc
+else
+
+	echo "shell not recognised as either 'bash' or 'zsh'"
+fi
+
+# ######################################
 # aliases
 
 # cb - copy to clipboard
