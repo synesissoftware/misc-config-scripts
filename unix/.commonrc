@@ -144,7 +144,7 @@ fi
 
 # GOPATH
 
-if command -v do > /dev/null; then
+if command -v go > /dev/null; then
 
 	if [[ "" != "$GOPATH" ]]; then
 
