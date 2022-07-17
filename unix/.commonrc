@@ -64,7 +64,7 @@ elif [ -n "$ZSH_VERSION" ]; then
 	alias hist="history 0"
 else
 
-	echo "shell not recognised as either 'bash' or 'zsh'"
+	[ -t 2 ] && echo "shell not recognised as either 'bash' or 'zsh'"
 fi
 
 # ldd - list dynamic dependencies
@@ -112,7 +112,7 @@ if command -v do > /dev/null; then
 		export GOPATH=~/go
 	else
 
-		echo -e "WARNING: GOPATH not defined, and cannot be inferred: file ~/.gopath does not exist; directories ~/dev/go and ~/go do not exist"
+		[ -t 2 ] && echo -e "WARNING: GOPATH not defined, and cannot be inferred: file ~/.gopath does not exist; directories ~/dev/go and ~/go do not exist"
 	fi
 fi
 
@@ -159,7 +159,7 @@ fi
 
 if command -v rbenv &>/dev/null; then
 
-	echo -e "\tInitialising rbenv ..."
+	[ -t 2 ] && echo -e "\tInitialising rbenv ..."
 	eval "$(rbenv init -)"
 fi
 
