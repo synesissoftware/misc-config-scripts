@@ -4,11 +4,11 @@
 # Purpose:      A base .bashrc / .zshrc
 #
 # Created:      Many, many years ago
-# Updated:      8th June 2021
+# Updated:      17th July 2022
 #
 # Author:       Matt Wilson
 #
-# Copyright (c) Matt Wilson, 2000-2021
+# Copyright (c) Matt Wilson, 2000-2022
 # All rights reserved
 #
 # Redistribution and use in source and binary forms, with or without
@@ -241,7 +241,6 @@ if [ -n "$ZSH_VERSION" ]; then
 	HISTORY_IGNORE+="history *|"
 	HISTORY_IGNORE+="history|"
 	HISTORY_IGNORE+="kgit st|"
-	HISTORY_IGNORE+="kgit st|"
 	HISTORY_IGNORE+="k|"
 	HISTORY_IGNORE+="ll|"
 	HISTORY_IGNORE+="ls -al|"
@@ -251,4 +250,5 @@ if [ -n "$ZSH_VERSION" ]; then
 fi
 
 # ############################## end of file ############################## #
+
 
