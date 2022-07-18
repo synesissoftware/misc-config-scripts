@@ -4,7 +4,7 @@
 # Purpose:      A base .bashrc / .zshrc
 #
 # Created:      Many, many years ago
-# Updated:      17th July 2022
+# Updated:      18th July 2022
 #
 # Author:       Matt Wilson
 #
@@ -51,7 +51,7 @@ elif [ -n "$BASH_VERSION" ]; then
 
 	if [ -f /etc/bashrc ];then
 
-		echo -e "\tLoading global definitions from /etc/bashrc"
+		[ -t 1 ] && echo -e "\tLoading global definitions from /etc/bashrc"
 
 		. /etc/bashrc
 	fi
@@ -60,7 +60,7 @@ elif [ -n "$ZSH_VERSION" ]; then
 	: # zsh automatically brings in /etc/zshrc
 else
 
-	echo "shell not recognised as either 'bash' or 'zsh'"
+	[ -t 1 ] && echo "shell not recognised as either 'bash' or 'zsh'"
 fi
 
 # ######################################
@@ -86,7 +86,7 @@ elif [ -n "$ZSH_VERSION" ]; then
 	alias hist="history 0"
 else
 
-	[ -t 2 ] && echo "shell not recognised as either 'bash' or 'zsh'"
+	[ -t 1 ] && echo "shell not recognised as either 'bash' or 'zsh'"
 fi
 
 # ldd - list dynamic dependencies
@@ -118,7 +118,7 @@ fi
 
 if [ -f $HOME/.common_environment_variables ]; then
 
-	echo -e "\tLoading custom environment variables from $HOME/.common_environment_variables"
+	[ -t 1 ] && echo -e "\tLoading custom environment variables from $HOME/.common_environment_variables"
 
 	. $HOME/.common_environment_variables
 fi
@@ -127,7 +127,7 @@ if [ -n "$BASH_VERSION" ]; then
 
 	if [ -f $HOME/.bash_environment_variables ]; then
 
-		echo -e "\tLoading custom environment variables from $HOME/.bash_environment_variables"
+		[ -t 1 ] && echo -e "\tLoading custom environment variables from $HOME/.bash_environment_variables"
 
 		. $HOME/.bash_environment_variables
 	fi
@@ -137,7 +137,7 @@ if [ -n "$ZSH_VERSION" ]; then
 
 	if [ -f $HOME/.zsh_environment_variables ]; then
 
-		echo -e "\tLoading custom environment variables from $HOME/.zsh_environment_variables"
+		[ -t 1 ] && echo -e "\tLoading custom environment variables from $HOME/.zsh_environment_variables"
 
 		. $HOME/.zsh_environment_variables
 	fi
@@ -163,7 +163,7 @@ if command -v go > /dev/null; then
 		export GOPATH=$HOME/go
 	else
 
-		[ -t 2 ] && echo -e "WARNING: GOPATH not defined, and cannot be inferred: file ~/.gopath does not exist; directories ~/dev/go and ~/go do not exist"
+		[ -t 1 ] && echo -e "WARNING: GOPATH not defined, and cannot be inferred: file ~/.gopath does not exist; directories ~/dev/go and ~/go do not exist"
 	fi
 fi
 
@@ -218,7 +218,7 @@ fi
 
 if command -v rbenv &>/dev/null; then
 
-	[ -t 2 ] && echo -e "\tInitialising rbenv ..."
+	[ -t 1 ] && echo -e "\tInitialising rbenv ..."
 	eval "$(rbenv init -)"
 fi
 
@@ -299,14 +299,14 @@ fi
 
 if [ -f $HOME/.common_custom_rc ]; then
 
-	echo -e "\tLoading custom settings from $HOME/.common_custom_rc"
+	[ -t 1 ] && echo -e "\tLoading custom settings from $HOME/.common_custom_rc"
 
 	. $HOME/.common_custom_rc
 elif [ -n "$BASH_VERSION" ]; then
 
 	if [ -f $HOME/.bash_custom_rc ]; then
 
-		echo -e "\tLoading custom settings from $HOME/.bash_custom_rc"
+		[ -t 1 ] && echo -e "\tLoading custom settings from $HOME/.bash_custom_rc"
 
 		. $HOME/.bash_custom_rc
 	fi
@@ -314,13 +314,13 @@ elif [ -n "$ZSH_VERSION" ]; then
 
 	if [ -f $HOME/.zsh_custom_rc ]; then
 
-		echo -e "\tLoading custom settings from $HOME/.zsh_custom_rc"
+		[ -t 1 ] && echo -e "\tLoading custom settings from $HOME/.zsh_custom_rc"
 
 		. $HOME/.zsh_custom_rc
 	fi
 else
 
-	echo "shell not recognised as either 'bash' or 'zsh'"
+	[ -t 1 ] && echo "shell not recognised as either 'bash' or 'zsh'"
 fi
 
 # ############################## end of file ############################## #
