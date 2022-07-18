@@ -42,6 +42,28 @@
 
 
 # ######################################
+# global definitions
+
+if false; then
+
+	:
+elif [ -n "$BASH_VERSION" ]; then
+
+	if [ -f /etc/bashrc ];then
+
+		echo -e "\tLoading global definitions from /etc/bashrc"
+
+		. /etc/bashrc
+	fi
+elif [ -n "$ZSH_VERSION" ]; then
+
+	: # zsh automatically brings in /etc/zshrc
+else
+
+	echo "shell not recognised as either 'bash' or 'zsh'"
+fi
+
+# ######################################
 # aliases
 
 # cb - copy to clipboard
@@ -92,24 +114,53 @@ fi
 # ######################################
 # environment variables
 
+# custom variables
+
+if [ -f $HOME/.common_environment_variables ]; then
+
+	echo -e "\tLoading custom environment variables from $HOME/.common_environment_variables"
+
+	. $HOME/.common_environment_variables
+fi
+
+if [ -n "$BASH_VERSION" ]; then
+
+	if [ -f $HOME/.bash_environment_variables ]; then
+
+		echo -e "\tLoading custom environment variables from $HOME/.bash_environment_variables"
+
+		. $HOME/.bash_environment_variables
+	fi
+fi
+
+if [ -n "$ZSH_VERSION" ]; then
+
+	if [ -f $HOME/.zsh_environment_variables ]; then
+
+		echo -e "\tLoading custom environment variables from $HOME/.zsh_environment_variables"
+
+		. $HOME/.zsh_environment_variables
+	fi
+fi
+
 # GOPATH
 
-if command -v do > /dev/null; then
+if command -v go > /dev/null; then
 
 	if [[ "" != "$GOPATH" ]]; then
 
 		:
-	elif [[ -f ~/.gopath ]]; then
+	elif [[ -f $HOME/.gopath ]]; then
 
-		gopath=$(eval echo $(head -n 1 ~/.gopath))
+		gopath=$(eval echo $(head -n 1 $HOME/.gopath))
 
 		export GOPATH=$gopath
-	elif [[ -d ~/dev/go ]]; then
+	elif [[ -d $HOME/dev/go ]]; then
 
-		export GOPATH=~/dev/go
-	elif [[ -d ~/go ]]; then
+		export GOPATH=$HOME/dev/go
+	elif [[ -d $HOME/go ]]; then
 
-		export GOPATH=~/go
+		export GOPATH=$HOME/go
 	else
 
 		[ -t 2 ] && echo -e "WARNING: GOPATH not defined, and cannot be inferred: file ~/.gopath does not exist; directories ~/dev/go and ~/go do not exist"
@@ -146,13 +197,21 @@ function fn_local_branch_name_4_git_prompt_() {
 
 if [ -n "$BASH_VERSION" ]; then
 
-	export PS1='[\033[01;32m\u@\h\033[00m] [\033[01;34m\w\033[00m] [\033[01;35m`fn_local_branch_name_4_git_prompt_`\033[00m]\n$ '
+	PROMPT_LEADER=$(echo $PROMPT_LEADER | sed 's/ *$//g' | sed 's/^ *//g')
+	[[ -z "$PROMPT_LEADER" ]] || PROMPT_LEADER="[\033[01;36m${PROMPT_LEADER}\033[00m] "
+
+	PS1=""
+	PS1+=$PROMPT_LEADER
+	export PS1+='[\033[00;32m\u@\h\033[00m] [\033[00;34m\w\033[00m] [\033[00;33m`fn_local_branch_name_4_git_prompt_`\033[00m]\n$ '
 fi
 
 if [ -n "$ZSH_VERSION" ]; then
 
+	PROMPT_LEADER=$(echo $PROMPT_LEADER | sed 's/ *$//g' | sed 's/^ *//g')
+	[[ -z "$PROMPT_LEADER" ]] || PROMPT_LEADER="[%B%F{cyan}${PROMPT_LEADER}%f%b] "
+
 	NEWLINE_4_GIT_PROMPT_=$'\n'
-	export PROMPT='[%F{green}%n@%m%f] [%F{blue}%~%f] [%F{cyan}$(fn_local_branch_name_4_git_prompt_)%f]${NEWLINE_4_GIT_PROMPT_}$ '
+	PROMPT='${PROMPT_LEADER}[%F{green}%n@%m%f] [%F{blue}%~%f] [%F{yellow}$(fn_local_branch_name_4_git_prompt_)%f]${NEWLINE_4_GIT_PROMPT_}$ '
 fi
 
 # rbenv
@@ -168,7 +227,7 @@ fi
 
 if [ -d $HOME/.bin ]; then
 
-	for f in ~/.bin/fn_*sh
+	for f in $HOME/.bin/fn_*sh
 	do
 
 		source "$f"
@@ -180,33 +239,34 @@ fi
 
 set -o vi || export EDITOR=vi
 
+IGNORE_ELEMENTS_=()
+IGNORE_ELEMENTS_+=(cd)
+IGNORE_ELEMENTS_+=(exit)
+IGNORE_ELEMENTS_+=("git diff")
+IGNORE_ELEMENTS_+=("git dis")
+IGNORE_ELEMENTS_+=("git diw")
+IGNORE_ELEMENTS_+=("git pull")
+IGNORE_ELEMENTS_+=("git push")
+IGNORE_ELEMENTS_+=("git st")
+IGNORE_ELEMENTS_+=("git status")
+IGNORE_ELEMENTS_+=(history)
+IGNORE_ELEMENTS_+=("history *")
+IGNORE_ELEMENTS_+=(ll)
+IGNORE_ELEMENTS_+=(ls)
+IGNORE_ELEMENTS_+=("ls -al")
+iGNORE_ELEMENTS_+=(pwd)
+
 if [ -n "$BASH_VERSION" ]; then
 
 	export HISTCONTROL=erasedups:ignoreboth
 
-	export HISTIGNORE=
-	export HISTIGNORE+='cd:'
-	export HISTIGNORE+='exit:'
-	export HISTIGNORE+='gi tl10:'
-	export HISTIGNORE+='gi tst:'
-	export HISTIGNORE+='giot st:'
-	export HISTIGNORE+='git diff:'
-	export HISTIGNORE+='git dis:'
-	export HISTIGNORE+='git diw:'
-	export HISTIGNORE+='git piush:'
-	export HISTIGNORE+='git push:'
-	export HISTIGNORE+='git st:'
-	export HISTIGNORE+='gitdis:'
-	export HISTIGNORE+='gitdiw:'
-	export HISTIGNORE+='gut st:'
-	export HISTIGNORE+='history *:'
-	export HISTIGNORE+='history:'
-	export HISTIGNORE+='k:'
-	export HISTIGNORE+='kgit st:'
-	export HISTIGNORE+='ll:'
-	export HISTIGNORE+='ls -al:'
-	export HISTIGNORE+='ls:'
-	export HISTIGNORE+='pwd:'
+	HISTIGNORE=
+	for i in ${!IGNORE_ELEMENTS_[@]}
+	do
+
+		HISTIGNORE+=:${IGNORE_ELEMENTS_[$i]}
+	done
+	export HISTIGNORE
 fi
 
 if [ -n "$ZSH_VERSION" ]; then
@@ -214,6 +274,7 @@ if [ -n "$ZSH_VERSION" ]; then
 	setopt LIST_ROWS_FIRST
 	setopt NO_AUTO_MENU
 	setopt NO_BEEP
+	setopt PROMPT_SUBST
 
 	setopt HIST_FIND_NO_DUPS
 	setopt HIST_IGNORE_ALL_DUPS
@@ -221,32 +282,45 @@ if [ -n "$ZSH_VERSION" ]; then
 	setopt HIST_REDUCE_BLANKS
 	setopt HIST_SAVE_NO_DUPS
 	setopt HIST_VERIFY
-	setopt PROMPT_SUBST
 
 	HISTORY_IGNORE="("
-	HISTORY_IGNORE+="cd|"
-	HISTORY_IGNORE+="exit|"
-	HISTORY_IGNORE+="gi tl10|"
-	HISTORY_IGNORE+="gi tst|"
-	HISTORY_IGNORE+="giot st|"
-	HISTORY_IGNORE+="git diff|"
-	HISTORY_IGNORE+="git dis|"
-	HISTORY_IGNORE+="git diw|"
-	HISTORY_IGNORE+="git piush|"
-	HISTORY_IGNORE+="git push|"
-	HISTORY_IGNORE+="git st|"
-	HISTORY_IGNORE+="gitdis|"
-	HISTORY_IGNORE+="gitdiw|"
-	HISTORY_IGNORE+="gut st|"
-	HISTORY_IGNORE+="history *|"
-	HISTORY_IGNORE+="history|"
-	HISTORY_IGNORE+="kgit st|"
-	HISTORY_IGNORE+="k|"
-	HISTORY_IGNORE+="ll|"
-	HISTORY_IGNORE+="ls -al|"
-	HISTORY_IGNORE+="ls|"
-	HISTORY_IGNORE+="pwd|"
+	let "lim_IGNORE_ELEMENTS_ = ${#IGNORE_ELEMENTS_} - 1"
+	for i in `seq 0 ${lim_IGNORE_ELEMENTS_}`
+	do
+
+		HISTORY_IGNORE+="|${IGNORE_ELEMENTS_[$i]}"
+	done
 	HISTORY_IGNORE+=")"
+	export HISTORY_IGNORE
+fi
+
+# ######################################
+# user customisations
+
+if [ -f $HOME/.common_custom_rc ]; then
+
+	echo -e "\tLoading custom settings from $HOME/.common_custom_rc"
+
+	. $HOME/.common_custom_rc
+elif [ -n "$BASH_VERSION" ]; then
+
+	if [ -f $HOME/.bash_custom_rc ]; then
+
+		echo -e "\tLoading custom settings from $HOME/.bash_custom_rc"
+
+		. $HOME/.bash_custom_rc
+	fi
+elif [ -n "$ZSH_VERSION" ]; then
+
+	if [ -f $HOME/.zsh_custom_rc ]; then
+
+		echo -e "\tLoading custom settings from $HOME/.zsh_custom_rc"
+
+		. $HOME/.zsh_custom_rc
+	fi
+else
+
+	echo "shell not recognised as either 'bash' or 'zsh'"
 fi
 
 # ############################## end of file ############################## #
