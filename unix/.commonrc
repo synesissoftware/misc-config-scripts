@@ -1,14 +1,14 @@
 # ######################################################################### #
-# File:         unix/.commonrc
+# File:     unix/.commonrc
 #
-# Purpose:      A base .bashrc / .zshrc
+# Purpose:  A base .bashrc / .zshrc
 #
-# Created:      Many, many years ago
-# Updated:      18th July 2022
+# Created:  Many, many years ago
+# Updated:  10th December 2023
 #
-# Author:       Matt Wilson
+# Author:   Matt Wilson
 #
-# Copyright (c) Matt Wilson, 2000-2022
+# Copyright (c) Matt Wilson, 2000-2023
 # All rights reserved
 #
 # Redistribution and use in source and binary forms, with or without
@@ -44,7 +44,7 @@
 # ######################################
 # global definitions
 
-if false; then
+if [ 0 -eq 1 ]; then
 
 	:
 elif [ -n "$BASH_VERSION" ]; then
@@ -53,15 +53,16 @@ elif [ -n "$BASH_VERSION" ]; then
 
 		[ -t 1 ] && echo -e "\tLoading global definitions from /etc/bashrc"
 
-		. /etc/bashrc
+		source /etc/bashrc
 	fi
 elif [ -n "$ZSH_VERSION" ]; then
 
 	: # zsh automatically brings in /etc/zshrc
 else
 
-	[ -t 1 ] && echo "shell not recognised as either 'bash' or 'zsh'"
+	[ -t 1 ] && echo "ALERT: shell not recognised as either 'bash' or 'zsh'"
 fi
+
 
 # ######################################
 # aliases
@@ -70,95 +71,135 @@ fi
 
 if which pbcopy &>/dev/null; then
 
-	alias cb=pbcopy
+	if ! which cb &>/dev/null; then
+
+		[ -t 1 ] && echo -e "\tAliasing cb to 'pbcopy'"
+
+		alias cb=pbcopy
+	fi
 fi
+
 
 # hist - show all history
 
-if false; then
+if ! which hist &>/dev/null; then
 
-	:
-elif [ -n "$BASH_VERSION" ]; then
+	if [ 0 -eq 1 ]; then
 
-	alias hist="history"
-elif [ -n "$ZSH_VERSION" ]; then
+		:
+	elif [ -n "$BASH_VERSION" ]; then
 
-	alias hist="history 0"
-else
+		[ -t 1 ] && echo -e "\tAliasing hist to 'history'"
 
-	[ -t 1 ] && echo "shell not recognised as either 'bash' or 'zsh'"
+		alias hist="history"
+	elif [ -n "$ZSH_VERSION" ]; then
+
+		[ -t 1 ] && echo -e "\tAliasing hist to 'history 0'"
+
+		alias hist="history 0"
+	else
+
+		[ -t 1 ] && echo "ALERT: shell not recognised as either 'bash' or 'zsh'"
+	fi
 fi
+
 
 # ldd - list dynamic dependencies
 
-if which otool &>/dev/null; then
+if ! which ldd &>/dev/null; then
 
-	alias ldd='otool -L'
+	if which otool &>/dev/null; then
+
+		[ -t 1 ] && echo -e "\tAliasing ldd to 'otool -L'"
+
+		alias ldd='otool -L'
+	fi
 fi
+
 
 # ll - list files long-form
 
-alias ll='ls -a -G -h -l'
-if which gls &>/dev/null; then
+if ! alias ll &>/dev/null; then
 
-	alias ll='gls --color=auto -a -F -G -h -l --group-directories-first'
+	if which gls &>/dev/null; then
+
+		[ -t 1 ] && echo -e "\tAliasing ldd to 'gls --color=auto -a -F -G -h -l --group-directories-first'"
+
+		alias ll='gls --color=auto -a -F -G -h -l --group-directories-first'
+	else
+
+		[ -t 1 ] && echo -e "\tAliasing ldd to 'ls -a -G -h -l'"
+
+		alias ll='ls -a -G -h -l'
+	fi
 fi
+
 
 # vi - ensuring vi is vim, where vim present
 
 if which vim &>/dev/null; then
 
-	alias vi="vim"
+	if ! alias vi &>/dev/null; then
+
+		[ -t 1 ] && echo -e "\tAliasing vi to 'vim'"
+
+		alias vi="vim"
+	fi
 fi
+
 
 # ######################################
 # environment variables
 
 # custom variables
 
-if [ -f $HOME/.common_environment_variables ]; then
+if [ -f "$HOME/.common_environment_variables" ]; then
 
-	[ -t 1 ] && echo -e "\tLoading custom environment variables from $HOME/.common_environment_variables"
+	[ -t 1 ] && echo -e "\tLoading custom environment variables from '$HOME/.common_environment_variables'"
 
-	. $HOME/.common_environment_variables
+	source "$HOME/.common_environment_variables"
 fi
 
 if [ -n "$BASH_VERSION" ]; then
 
-	if [ -f $HOME/.bash_environment_variables ]; then
+	if [ -f "$HOME/.bash_environment_variables" ]; then
 
-		[ -t 1 ] && echo -e "\tLoading custom environment variables from $HOME/.bash_environment_variables"
+		[ -t 1 ] && echo -e "\tLoading custom environment variables from '$HOME/.bash_environment_variables'"
 
-		. $HOME/.bash_environment_variables
+		source "$HOME/.bash_environment_variables"
 	fi
 fi
 
 if [ -n "$ZSH_VERSION" ]; then
 
-	if [ -f $HOME/.zsh_environment_variables ]; then
+	if [ -f "$HOME/.zsh_environment_variables" ]; then
 
-		[ -t 1 ] && echo -e "\tLoading custom environment variables from $HOME/.zsh_environment_variables"
+		[ -t 1 ] && echo -e "\tLoading custom environment variables from '$HOME/.zsh_environment_variables'"
 
-		. $HOME/.zsh_environment_variables
+		source "$HOME/.zsh_environment_variables"
 	fi
 fi
+
 
 # GOPATH
 
 if command -v go > /dev/null; then
 
-	if [[ "" != "$GOPATH" ]]; then
+	if [ 0 -eq 1 ]; then
 
 		:
-	elif [[ -f $HOME/.gopath ]]; then
+	elif [ "" != "$GOPATH" ]; then
+
+		:
+	elif [ -f "$HOME/.gopath" ]; then
 
 		gopath=$(eval echo $(head -n 1 $HOME/.gopath))
 
 		export GOPATH=$gopath
-	elif [[ -d $HOME/dev/go ]]; then
+	elif [ -d "$HOME/dev/go" ]; then
 
 		export GOPATH=$HOME/dev/go
-	elif [[ -d $HOME/go ]]; then
+	elif [ -d "$HOME/go" ]; then
 
 		export GOPATH=$HOME/go
 	else
@@ -167,26 +208,31 @@ if command -v go > /dev/null; then
 	fi
 fi
 
+
 # PATH
 
 POTENTIAL_LOCAL_PATHS_=()
 POTENTIAL_LOCAL_PATHS_+=($HOME/.bin)
 POTENTIAL_LOCAL_PATHS_+=($HOME/bin)
+# prefix with ':' to place at the back of $PATH
 POTENTIAL_LOCAL_PATHS_+=(:/Applications/Xcode.app/Contents/Developer/usr/bin)
 
 for p in ${POTENTIAL_LOCAL_PATHS_[@]}
 do
 
-	if [[ ":" == ${p:0:1} ]]
-	then
+	if [ ":" = ${p:0:1} ]; then
 
 		PATH=$PATH:${p:1}
 	else
 
 		PATH=$p:$PATH
 	fi
+
 	export PATH
 done
+
+POTENTIAL_LOCAL_PATHS_=
+
 
 # prompt
 
@@ -198,7 +244,7 @@ function fn_local_branch_name_4_git_prompt_() {
 if [ -n "$BASH_VERSION" ]; then
 
 	PROMPT_LEADER=$(echo $PROMPT_LEADER | sed 's/ *$//g' | sed 's/^ *//g')
-	[[ -z "$PROMPT_LEADER" ]] || PROMPT_LEADER="[\033[01;36m${PROMPT_LEADER}\033[00m] "
+	[ -z "$PROMPT_LEADER" ] || PROMPT_LEADER="[\033[01;36m${PROMPT_LEADER}\033[00m] "
 
 	PS1=""
 	PS1+=$PROMPT_LEADER
@@ -208,11 +254,12 @@ fi
 if [ -n "$ZSH_VERSION" ]; then
 
 	PROMPT_LEADER=$(echo $PROMPT_LEADER | sed 's/ *$//g' | sed 's/^ *//g')
-	[[ -z "$PROMPT_LEADER" ]] || PROMPT_LEADER="[%B%F{cyan}${PROMPT_LEADER}%f%b] "
+	[ -z "$PROMPT_LEADER" ] || PROMPT_LEADER="[%B%F{cyan}${PROMPT_LEADER}%f%b] "
 
 	NEWLINE_4_GIT_PROMPT_=$'\n'
 	PROMPT='${PROMPT_LEADER}[%F{green}%n@%m%f] [%F{blue}%~%f] [%F{yellow}$(fn_local_branch_name_4_git_prompt_)%f]${NEWLINE_4_GIT_PROMPT_}$ '
 fi
+
 
 # rbenv
 
@@ -221,6 +268,7 @@ if command -v rbenv &>/dev/null; then
 	[ -t 1 ] && echo -e "\tInitialising rbenv ..."
 	eval "$(rbenv init -)"
 fi
+
 
 # ######################################
 # functions
@@ -233,6 +281,7 @@ if [ -d $HOME/.bin ]; then
 		source "$f"
 	done
 fi
+
 
 # ######################################
 # editor
@@ -294,35 +343,41 @@ if [ -n "$ZSH_VERSION" ]; then
 	export HISTORY_IGNORE
 fi
 
+IGNORE_ELEMENTS_=
+
+
 # ######################################
 # user customisations
 
-if [ -f $HOME/.common_custom_rc ]; then
+if [ 0 -eq 1 ]; then
 
-	[ -t 1 ] && echo -e "\tLoading custom settings from $HOME/.common_custom_rc"
+	:
+elif [ -f "$HOME/.common_custom_rc" ]; then
 
-	. $HOME/.common_custom_rc
+	[ -t 1 ] && echo -e "\tLoading custom settings from '$HOME/.common_custom_rc'"
+
+	source "$HOME/.common_custom_rc"
 elif [ -n "$BASH_VERSION" ]; then
 
-	if [ -f $HOME/.bash_custom_rc ]; then
+	if [ -f "$HOME/.bash_custom_rc" ]; then
 
-		[ -t 1 ] && echo -e "\tLoading custom settings from $HOME/.bash_custom_rc"
+		[ -t 1 ] && echo -e "\tLoading custom settings from '$HOME/.bash_custom_rc'"
 
-		. $HOME/.bash_custom_rc
+		source "$HOME/.bash_custom_rc"
 	fi
 elif [ -n "$ZSH_VERSION" ]; then
 
-	if [ -f $HOME/.zsh_custom_rc ]; then
+	if [ -f "$HOME/.zsh_custom_rc" ]; then
 
-		[ -t 1 ] && echo -e "\tLoading custom settings from $HOME/.zsh_custom_rc"
+		[ -t 1 ] && echo -e "\tLoading custom settings from '$HOME/.zsh_custom_rc'"
 
-		. $HOME/.zsh_custom_rc
+		source "$HOME/.zsh_custom_rc"
 	fi
 else
 
-	[ -t 1 ] && echo "shell not recognised as either 'bash' or 'zsh'"
+	[ -t 1 ] && echo "ALERT: shell not recognised as either 'bash' or 'zsh'"
 fi
 
-# ############################## end of file ############################## #
 
+# ############################## end of file ############################## #
 
