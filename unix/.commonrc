@@ -4,11 +4,11 @@
 # Purpose:  A base .bashrc / .zshrc
 #
 # Created:  Many, many years ago
-# Updated:  10th December 2023
+# Updated:  6th February 2024
 #
 # Author:   Matt Wilson
 #
-# Copyright (c) Matt Wilson, 2000-2023
+# Copyright (c) Matt Wilson, 2000-2024
 # All rights reserved
 #
 # Redistribution and use in source and binary forms, with or without
@@ -60,7 +60,7 @@ elif [ -n "$ZSH_VERSION" ]; then
 	: # zsh automatically brings in /etc/zshrc
 else
 
-	[ -t 1 ] && echo "ALERT: shell not recognised as either 'bash' or 'zsh'"
+	[ -t 1 ] && >&2 echo "ALERT: shell not recognised as either 'bash' or 'zsh'"
 fi
 
 
@@ -99,7 +99,7 @@ if ! which hist &>/dev/null; then
 		alias hist="history 0"
 	else
 
-		[ -t 1 ] && echo "ALERT: shell not recognised as either 'bash' or 'zsh'"
+		[ -t 1 ] && >&2 echo "ALERT: shell not recognised as either 'bash' or 'zsh'"
 	fi
 fi
 
@@ -248,6 +248,7 @@ if [ -n "$BASH_VERSION" ]; then
 
 	PS1=""
 	PS1+=$PROMPT_LEADER
+
 	export PS1+='[\033[00;32m\u@\h\033[00m] [\033[00;34m\w\033[00m] [\033[00;33m`fn_local_branch_name_4_git_prompt_`\033[00m]\n$ '
 fi
 
@@ -266,6 +267,7 @@ fi
 if command -v rbenv &>/dev/null; then
 
 	[ -t 1 ] && echo -e "\tInitialising rbenv ..."
+
 	eval "$(rbenv init -)"
 fi
 
@@ -375,7 +377,7 @@ elif [ -n "$ZSH_VERSION" ]; then
 	fi
 else
 
-	[ -t 1 ] && echo "ALERT: shell not recognised as either 'bash' or 'zsh'"
+	[ -t 1 ] && >&2 echo "ALERT: shell not recognised as either 'bash' or 'zsh'"
 fi
 
 
