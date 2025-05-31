@@ -1,0 +1,38 @@
+[user]
+[alias]
+	alias = config --get-regexp alias
+	br = branch --sort=-committerdate
+	cb = rev-parse --abbrev-ref HEAD
+	ch = checkout
+	co = commit
+	cp = cherry-pick
+	dis = diff --staged --ignore-space-change
+	diss = diff --staged --ignore-all-space
+	diw = diff --ignore-space-change
+	diww = diff --ignore-all-space
+	l = log --oneline --decorate=full
+	l1 = log --oneline --decorate=full
+	l10 = log --oneline --decorate=full -10
+	l20 = log --oneline --decorate=full -20
+	l30 = log --oneline --decorate=full -30
+	l40 = log --oneline --decorate=full -40
+	l50 = log --oneline --decorate=full -50
+	l60 = log --oneline --decorate=full -60
+	la = log --all --branches --decorate=full --graph --oneline
+	lg = log --decorate=full --graph
+	ln = log --decorate=full
+	logline = log --graph --pretty=format:'%Cred%h%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	meff = merge --ff-only
+	msq = merge --no-commit --squash
+	puff = pull --ff-only
+	rev = remote -v
+	sl = stash list --format='%C(blue bold)%gd%Creset (%C(green)%cr%Creset, %ch): %gs (%C(yellow)%an%Creset)' # https://stackoverflow.com/questions/31686452/how-to-view-stash-date-timestamp-next-to-stash-id, https://stackoverflow.com/questions/5889878/color-in-git-log
+	st = status
+[core]
+	excludesfile = ~/.gitignore
+[pull]
+	default = simple
+	rebase = false
+[init]
+	defaultBranch = master
+
