@@ -4,7 +4,7 @@
 # Purpose:  A base .bashrc / .zshrc
 #
 # Created:  Many, many years ago
-# Updated:  6th February 2024
+# Updated:  30th April 2024
 #
 # Author:   Matt Wilson
 #
@@ -268,7 +268,13 @@ if command -v rbenv &>/dev/null; then
 
 	[ -t 1 ] && echo -e "\tInitialising rbenv ..."
 
-	eval "$(rbenv init -)"
+	if [ -n "$ZSH_VERSION" ]; then
+
+		eval "$(rbenv init - zsh)"
+	else
+
+		eval "$(rbenv init -)"
+	fi
 fi
 
 
