@@ -1,17 +1,21 @@
 
 # directories (by name)
 
-/_scratch
+/scratch/
+
 
 # directories (by pattern)
 
+
 # files (by name)
+
+.DS_Store
+
 
 # files (by pattern)
 
 *~
-*.swo
-*.swp
+*.sw[ponm]
 *.tmp
 *.zip
 
