@@ -1,11 +1,17 @@
 # misc-config-scripts <!-- omit in toc -->
 
+![Shells](https://img.shields.io/badge/shells-bash%20%7C%20zsh-blue.svg)
+[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+[![Last Commit](https://img.shields.io/github/last-commit/synesissoftware/misc-config-scripts)](https://github.com/synesissoftware/misc-config-scripts/commits/master)
+[![CI](https://github.com/synesissoftware/misc-config-scripts/actions/workflows/ci.yml/badge.svg)](https://github.com/synesissoftware/misc-config-scripts/actions/workflows/ci.yml)
+
 Miscellaneous Configuration Scripts
 
 
 ## Table of Contents <!-- omit in toc -->
 
 - [Bash/Zsh Run-scripts](#bashzsh-run-scripts)
+- [Git configuration files](#git-configuration-files)
 
 
 ## Bash/Zsh Run-scripts
@@ -38,5 +44,29 @@ Miscellaneous Configuration Scripts
     * **"$HOME/.zsh_custom_rc"**;
 
 
-<!-- ########################### end of file ########################### -->
+## Git configuration files
 
+* [.gitconfig](git/.gitconfig) - a drop-in for **~/.gitconfig** with the following aspects:
+  * aliases:
+    * **alias** - lists all aliases;
+    * **br** - **branch**, ordered by commit date;
+    * **cb** - obtain name of current branch;
+    * **ch** - **checkout**;
+    * **co** - **commit**;
+    * **cp** - **cherry-pick**;
+    * **dis** - diff of index, ignore space;
+    * **diss** - diff of index, ignore all space;
+    * **diw** - diff of working, ignore space;
+    * **diww** - diff of working, ignore all space;
+    * **l**, **l1**, **l10**, **l20**, **l30**, **l40**, **l50**, **l60**, **la**, **lg**, **ln**, **logline** - various forms of **log**;
+    * **meff** - **merge** but fast-forward only;
+    * **msq** - **merge** with squash and no-commit;
+    * **puff** - **pull** but fast-forward only;
+    * **rev** - **remote** verbose;
+    * **sl** - list stash with lots of useful details;
+    * **st** - **status**;
+  * default branch **master**;
+  * pull behaviour **simple**;
+
+
+<!-- ########################### end of file ########################### -->
