@@ -1,4 +1,11 @@
+diff a/README.md b/README.md	(rejected hunks)
+@@ -1,11 +1,17 @@
 # misc-config-scripts <!-- omit in toc -->
+
+![Shells](https://img.shields.io/badge/shells-bash%20%7C%20zsh-blue.svg)
+[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+[![Last Commit](https://img.shields.io/github/last-commit/synesissoftware/misc-config-scripts)](https://github.com/synesissoftware/misc-config-scripts/commits/master)
+[![CI](https://github.com/synesissoftware/misc-config-scripts/actions/workflows/ci.yml/badge.svg)](https://github.com/synesissoftware/misc-config-scripts/actions/workflows/ci.yml)
 
 Miscellaneous Configuration Scripts
 
@@ -39,6 +46,7 @@ Miscellaneous Configuration Scripts
     * **"$HOME/.zsh_custom_rc"**;
 
 
+
 ## Git configuration files
 
 * [.gitconfig](git/.gitconfig) - a drop-in for **~/.gitconfig** with the following aspects:
@@ -64,6 +72,4 @@ Miscellaneous Configuration Scripts
   * pull behaviour **simple**;
 
 
-
 <!-- ########################### end of file ########################### -->
-

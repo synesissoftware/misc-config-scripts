@@ -1,4 +1,6 @@
 [user]
+	name = My Name
+	email = my@mail.com
 [alias]
 	alias = config --get-regexp alias
 	br = branch --sort=-committerdate
