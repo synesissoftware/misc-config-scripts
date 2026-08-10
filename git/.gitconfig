@@ -24,6 +24,7 @@
 	lg = log --decorate=full --graph
 	ln = log --decorate=full
 	logline = log --graph --pretty=format:'%Cred%h%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	mb = merge-base
 	meff = merge --ff-only
 	msq = merge --no-commit --squash
 	puff = pull --ff-only
