@@ -11,6 +11,7 @@
 *.hpp linguist-language=C++
 *.html linguist-detectable=false
 *.hxx linguist-language=C++
+*.json linguist-language=JSON
 *.sh linguist-detectable=false
 *.sln linguist-detectable=false
 *.vcxproj linguist-detectable=false
