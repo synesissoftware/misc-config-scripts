@@ -18,6 +18,11 @@
 - [0.0.0](#000)
 
 
+## 0.6.1
+
+* Added CI step;
+
+
 ## 0.6.0
 
 * Added per-language **.gitattributes** files;
