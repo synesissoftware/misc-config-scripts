@@ -3,6 +3,8 @@
 
 ## Table of Contents <!-- omit in toc -->
 
+- [0.6.0](#060)
+- [0.5.0](#050)
 - [0.4.1](#041)
 - [0.4.0](#040)
 - [0.3.2](#032)
@@ -14,6 +16,16 @@
 - [0.0.2](#002)
 - [0.0.1](#001)
 - [0.0.0](#000)
+
+
+## 0.6.0
+
+* Added per-language **.gitattributes** files;
+
+
+## 0.5.0 - 10th August 2026
+
+* Added per-language **settings.json** files;
 
 
 ## 0.4.1 - 25th July 2026
