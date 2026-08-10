@@ -1,4 +1,7 @@
+diff a/README.md b/README.md	(rejected hunks)
+@@ -1,11 +1,17 @@
 # misc-config-scripts <!-- omit in toc -->
+
 
 Miscellaneous Configuration Scripts
 

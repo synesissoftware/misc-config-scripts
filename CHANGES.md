@@ -70,7 +70,7 @@
 * fix;
 
 
-## 0.0.2 - 24th April 2021
+## 0.0.2 - 25th April 2021
 
 * prompt;
 * paths;
@@ -78,7 +78,7 @@
 * mods;
 
 
-## 0.0.1 - 23th April 2021
+## 0.0.1 - 24th April 2021
 
 * added **unix/.commonrc**;
 * ignores;
