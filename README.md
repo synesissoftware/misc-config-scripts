@@ -46,7 +46,6 @@ Miscellaneous Configuration Scripts
     * **$HOME/.bash_custom_rc**;
     * **$HOME/.zsh_custom_rc**;
 
-
 ## Git configuration files
 
 * **.gitconfig** (**git/.gitconfig**) - a drop-in for **~/.gitconfig** with the following aspects:
