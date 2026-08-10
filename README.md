@@ -21,7 +21,7 @@ Miscellaneous Configuration Scripts
 
 * **.commonrc** (**unix/.commonrc**) - a basic **.bashrc** / **.zshrc**, which includes the following features:
   * works with both `bash` and `zsh`;
-  * defines prompt (`PS1`) that includes elements user-name, host-id, directory, and git-branch (if any);
+  * defines prompt (`PS1`) that includes elements user-name, host-id, directory, and git-branch (if any) with terse status counts (`+` staged green, `*` changed cyan, `?` unknown/untracked red; branch yellow);
   * locates and, if exists, preloads **/etc/bashrc**;
   * conditionally aliases:
     * `cb` to `pbcopy` (macOS) if identified, or `clip` (Windows) if identified;

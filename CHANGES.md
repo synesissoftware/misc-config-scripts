@@ -18,6 +18,13 @@
 - [0.0.0](#000)
 
 
+## 0.7.0
+
+* **unix/.commonrc**:
+  * enhanced Git prompt to show terse status counts (`+` staged, `*` changed, `?` unknown/untracked) via a single-pass `git status --porcelain -b` call;
+  * coloured Git prompt fields: branch yellow, `+` green, `*` cyan, `?` red;
+
+
 ## 0.6.1
 
 * Added CI step;

@@ -10,7 +10,7 @@
 
 ## Functional improvements
 
-* [ ] Enhance Git command prompt to show terse status counts (`+` staged, `*` changed, `?` unknown/untracked) in a single-pass `git status` call;
+* [x] Enhance Git command prompt to show terse status counts (`+` staged, `*` changed, `?` unknown/untracked) in a single-pass `git status` call;
 * [ ] Add a facility for preloading command history from a file (e.g., `~/.common_history_preload`) or an environment variable;
 
 
