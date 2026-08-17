@@ -1,10 +1,12 @@
 # misc-config-scripts <!-- omit in toc -->
 
-
 Miscellaneous Configuration Scripts
+
 
 ![Shells](https://img.shields.io/badge/shells-bash%20%7C%20zsh-blue.svg)
 [![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+[![Version](https://img.shields.io/badge/version-0.8.0-blue.svg)](https://github.com/synesissoftware/misc-config-scripts/blob/master/CHANGES.md)
+[![GitHub release](https://img.shields.io/github/v/release/synesissoftware/misc-config-scripts.svg)](https://github.com/synesissoftware/misc-config-scripts/releases/latest)
 [![Last Commit](https://img.shields.io/github/last-commit/synesissoftware/misc-config-scripts)](https://github.com/synesissoftware/misc-config-scripts/commits/master)
 [![CI](https://github.com/synesissoftware/misc-config-scripts/actions/workflows/ci.yml/badge.svg)](https://github.com/synesissoftware/misc-config-scripts/actions/workflows/ci.yml)
 

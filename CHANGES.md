@@ -3,6 +3,7 @@
 
 ## Table of Contents <!-- omit in toc -->
 
+- [0.8.0](#080)
 - [0.7.0](#070)
 - [0.6.1](#061)
 - [0.6.0](#060)
@@ -20,7 +21,7 @@
 - [0.0.0](#000)
 
 
-## 0.8.0
+## 0.8.0 - 17th August 2026
 
 * **unix/.commonrc**:
   * enhanced Git prompt to show terse status counts (`+` staged, `*` changed, `?` unknown/untracked) via a single-pass `git status --porcelain -b` call;
