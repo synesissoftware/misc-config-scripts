@@ -1,5 +1,3 @@
-diff a/README.md b/README.md	(rejected hunks)
-@@ -1,11 +1,17 @@
 # misc-config-scripts <!-- omit in toc -->
 
 
@@ -13,62 +11,101 @@ Miscellaneous Configuration Scripts
 
 ## Table of Contents <!-- omit in toc -->
 
-- [Bash/Zsh Run-scripts](#bashzsh-run-scripts)
-- [Git configuration files](#git-configuration-files)
+- [Introduction](#introduction)
+- [Bash/Zsh run-scripts](#bashzsh-run-scripts)
+- [Git configuration](#git-configuration)
+- [VS Code settings](#vs-code-settings)
+- [Git attributes](#git-attributes)
+- [Related projects](#related-projects)
+- [Project Information](#project-information)
 
 
-## Bash/Zsh Run-scripts
+## Introduction
 
-* **.commonrc** (**unix/.commonrc**) - a basic **.bashrc** / **.zshrc**, which includes the following features:
+**misc-config-scripts** is a collection of configuration resources intended to be **copied** into Synesis and related projects or developer environments.
+
+The resources cover shell startup, Git, VS Code, and GitHub-hosted repository attributes. Each resource has a canonical copy in this repository; consuming projects should record the relevant **VERSION** in their **CHANGES.md** when updating.
+
+Sibling project: [**misc-dev-scripts**](https://github.com/synesissoftware/misc-dev-scripts) (development and test-runner scripts).
+
+
+## Bash/Zsh run-scripts
+
+* **.commonrc** (**unix/.commonrc**) is a basic **.bashrc** / **.zshrc** that:
   * works with both `bash` and `zsh`;
   * defines prompt (`PS1`) that includes elements user-name, host-id, directory, and git-branch (if any) with terse status counts (`+` staged green, `*` changed cyan, `?` unknown/untracked red; branch yellow);
   * locates and, if exists, preloads **/etc/bashrc**;
   * conditionally aliases:
-    * `cb` to `pbcopy` (macOS) if identified, or `clip` (Windows) if identified;
-    * `hist` to `history` if `bash`, or `history 0` if `zsh`;
+    * `cb` to `pbcopy` (macOS) or `clip` (Windows);
+    * `hist` to `history` (Bash) or `history 0` (Zsh);
     * `ldd` to `otool -L` (macOS);
-    * `ll` to most useful incantation of `ls` (operating-system specific);
+    * `ll` to the most useful host-specific `ls` invocation; and
     * `vi` to `vim`;
-  * conditionally locates and, if exist, loads environment variables from:
+  * loads environment variables from:
     * **$HOME/.common_environment_variables**; and
-    * **$HOME/.bash_environment_variables** (Bash); or
-    * **$HOME/.zsh_environment_variables** (Zsh);
-  * sets `GOPATH` environment variable if directory identified;
-  * supplements `PATH` environment variable with the following, for each that exist:
-    * **$HOME/.bin**;
-    * **$HOME/bin**;
-    * **/Applications/Xcode.app/Contents/Developer/usr/bin**;
-  * initialises **rbenv**, if it is found;
-  * sources all functions in any files in **$HOME/.bin/fn_*sh**;
-  * setting a bunch of history ignores (`HISTIGNORE` in Bash; `HISTORY_IGNORE` in Zsh);
-  * conditionally locates and, if exist, loads the first of:
-    * **$HOME/.common_custom_rc**;
-    * **$HOME/.bash_custom_rc**;
-    * **$HOME/.zsh_custom_rc**;
+    * **$HOME/.bash_environment_variables** (Bash) or **$HOME/.zsh_environment_variables** (Zsh);
+  * sets `GOPATH` when an appropriate directory is found;
+  * supplements `PATH` with **$HOME/.bin**, **$HOME/bin**, and the Xcode developer-tools directory when present;
+  * initialises `rbenv` when found;
+  * sources functions from **$HOME/.bin/fn_*sh**;
+  * configures history ignores (`HISTIGNORE` in Bash and `HISTORY_IGNORE` in Zsh); and
+  * loads the first available **$HOME/.common_custom_rc**, **$HOME/.bash_custom_rc**, or **$HOME/.zsh_custom_rc**.
 
-## Git configuration files
 
-* **.gitconfig** (**git/.gitconfig**) - a drop-in for **~/.gitconfig** with the following aspects:
+## Git configuration
+
+* **.gitconfig** (**git/.gitconfig**) is a drop-in for **~/.gitconfig** with:
   * aliases:
-    * `alias` - lists all aliases;
-    * `br` - `branch`, ordered by commit date;
-    * `cb` - obtain name of current branch;
-    * `ch` - `checkout`;
-    * `co` - `commit`;
-    * `cp` - `cherry-pick`;
-    * `dis` - diff of index, ignore space;
-    * `diss` - diff of index, ignore all space;
-    * `diw` - diff of working, ignore space;
-    * `diww` - diff of working, ignore all space;
-    * `l`, `l1`, `l10`, `l20`, `l30`, `l40`, `l50`, `l60`, `la`, `lg`, `ln`, `logline` - various forms of `log`;
-    * `meff` - `merge` but fast-forward only;
-    * `msq` - `merge` with squash and no-commit;
-    * `puff` - `pull` but fast-forward only;
-    * `rev` - `remote` verbose;
-    * `sl` - list stash with lots of useful details;
-    * `st` - `status`;
-  * default branch `master`;
-  * pull behaviour `simple`;
+    * `alias` — list all aliases;
+    * `br` — list branches ordered by commit date;
+    * `cb` — obtain the current branch;
+    * `ch`, `co`, and `cp` — checkout, commit, and cherry-pick;
+    * `dis`, `diss`, `diw`, and `diww` — staged and working-tree diffs with whitespace control;
+    * `l`, `l1`, `l10`, `l20`, `l30`, `l40`, `l50`, `l60`, `la`, `lg`, `ln`, and `logline` — various forms of `log`;
+    * `meff` and `msq` — fast-forward-only and squash merges;
+    * `puff` — fast-forward-only pull;
+    * `rev` — verbose remotes;
+    * `sl` — detailed stash listing; and
+    * `st` — status;
+  * `master` as the default initial branch; and
+  * `simple` pull behaviour.
+
+
+## VS Code settings
+
+Drop-in workspace settings are provided as **.vscode/settings.json** templates under **settings.json/**.
+
+* Language-specific templates cover C, C++, C#, Go, JavaScript, Python, Ruby, Rust, and Zig;
+* **settings.json/generic/settings.json** provides a union for mixed-language workspaces; and
+* templates establish shared formatting, whitespace, ruler, and language-tooling preferences without machine-specific paths.
+
+See [**settings.json/README.md**](./settings.json/README.md) for the template conventions, contents, and layout.
+
+
+## Git attributes
+
+Drop-in root **.gitattributes** templates are provided under **gitattributes/**.
+
+* Language-specific templates cover C, C++, C#, Go, JavaScript, Python, Ruby, Rust, and Zig;
+* **gitattributes/c_cxx/.gitattributes** combines the C and C++ rules for mixed native-language projects;
+* **gitattributes/generic/.gitattributes** provides a union of all language templates; and
+* templates normalise text to LF, identify common binaries, configure language-aware diffs, and mark common generated build paths.
+
+See [**gitattributes/README.md**](./gitattributes/README.md) for the template conventions, sources, and usage.
+
+
+## Related projects
+
+A peer project providing development and test-runner scripts is [**misc-dev-scripts**](https://github.com/synesissoftware/misc-dev-scripts).
+
+
+## Project Information
+
+* **VERSION** — see [**VERSION**](./VERSION);
+* **CHANGES** — see [**CHANGES.md**](./CHANGES.md);
+* **NEWS** — see [**NEWS.md**](./NEWS.md);
+* **TODO** — see [**TODO.md**](./TODO.md);
+* **License** — BSD-3-Clause; see [**LICENSE**](./LICENSE).
 
 
 <!-- ########################### end of file ########################### -->

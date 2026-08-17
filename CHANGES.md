@@ -1,8 +1,10 @@
-# misc-config-scripts - CHANGES <!-- omit in toc -->
+# misc-config-scripts - Changes <!-- omit in toc -->
 
 
 ## Table of Contents <!-- omit in toc -->
 
+- [0.7.0](#070)
+- [0.6.1](#061)
 - [0.6.0](#060)
 - [0.5.0](#050)
 - [0.4.1](#041)
@@ -18,19 +20,24 @@
 - [0.0.0](#000)
 
 
-## 0.7.0
+## 0.8.0
 
 * **unix/.commonrc**:
   * enhanced Git prompt to show terse status counts (`+` staged, `*` changed, `?` unknown/untracked) via a single-pass `git status --porcelain -b` call;
   * coloured Git prompt fields: branch yellow, `+` green, `*` cyan, `?` red;
 
 
-## 0.6.1
+## 0.7.0 - 17th August 2026
+
+* Added combined C / C++ **.gitattributes** template;
+
+
+## 0.6.1 - 10th August 2026
 
 * Added CI step;
 
 
-## 0.6.0
+## 0.6.0 - 10th August 2026
 
 * Added per-language **.gitattributes** files;
 
