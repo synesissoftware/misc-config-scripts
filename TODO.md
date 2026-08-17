@@ -10,8 +10,8 @@
 
 ## Functional improvements
 
-* [ ] Enhance Git command prompt to show terse status counts (`+` staged, `*` changed, `?` unknown/untracked) in a single-pass `git status` call;
-* [ ] Add a facility for preloading command history from a file (e.g., `~/.common_history_preload`) or an environment variable;
+* [x] ~~~Enhance Git command prompt to show terse status counts (`+` staged, `*` changed, `?` unknown/untracked) in a single-pass `git status` call~~~ ✅;
+* [ ] Add a facility for preloading command history from a file (e.g. **~/.common_history_preload**) or an environment variable;
 
 
 ## Performance improvements
@@ -21,8 +21,9 @@
 
 ## Packaging improvements
 
-* [ ] Add sample `.bashrc` and `.zshrc` files under `unix/` to bootstrap `unix/.commonrc` cleanly;
-* [ ] Add GitHub Actions workflow (`ci.yml`) to run ShellCheck and validate syntax for both Bash and Zsh;
+* [ ] Add sample **.bashrc** and **.zshrc** files under **unix/** to bootstrap **unix/.commonrc** cleanly;
+* [x] ~~~Add GitHub Actions workflow (**ci.yml**) to validate **unix/.commonrc** syntax~~~ ✅;
+* [ ] Extend **ci.yml** to run ShellCheck and validate syntax for Zsh as well as Bash;
 
 
 <!-- ########################### end of file ########################### -->

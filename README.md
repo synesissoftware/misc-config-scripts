@@ -1,10 +1,12 @@
 # misc-config-scripts <!-- omit in toc -->
 
-
 Miscellaneous Configuration Scripts
+
 
 ![Shells](https://img.shields.io/badge/shells-bash%20%7C%20zsh-blue.svg)
 [![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+[![Version](https://img.shields.io/badge/version-0.8.0-blue.svg)](https://github.com/synesissoftware/misc-config-scripts/blob/master/CHANGES.md)
+[![GitHub release](https://img.shields.io/github/v/release/synesissoftware/misc-config-scripts.svg)](https://github.com/synesissoftware/misc-config-scripts/releases/latest)
 [![Last Commit](https://img.shields.io/github/last-commit/synesissoftware/misc-config-scripts)](https://github.com/synesissoftware/misc-config-scripts/commits/master)
 [![CI](https://github.com/synesissoftware/misc-config-scripts/actions/workflows/ci.yml/badge.svg)](https://github.com/synesissoftware/misc-config-scripts/actions/workflows/ci.yml)
 
@@ -33,8 +35,8 @@ Sibling project: [**misc-dev-scripts**](https://github.com/synesissoftware/misc-
 
 * **.commonrc** (**unix/.commonrc**) is a basic **.bashrc** / **.zshrc** that:
   * works with both `bash` and `zsh`;
-  * defines a prompt (`PS1`) containing the user name, host, directory, and Git branch;
-  * locates and preloads **/etc/bashrc** when present;
+  * defines prompt (`PS1`) that includes elements user-name, host-id, directory, and git-branch (if any) with terse status counts (`+` staged green, `*` changed cyan, `?` unknown/untracked red; branch yellow);
+  * locates and, if exists, preloads **/etc/bashrc**;
   * conditionally aliases:
     * `cb` to `pbcopy` (macOS) or `clip` (Windows);
     * `hist` to `history` (Bash) or `history 0` (Zsh);

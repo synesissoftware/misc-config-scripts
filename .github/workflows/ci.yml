@@ -1,6 +1,6 @@
 #
 # Created: 10th August 2026
-# Updated: 10th August 2026
+# Updated: 17th August 2026
 #
 
 name: CI
@@ -10,8 +10,11 @@ on:
     branches:
     - master
     - dev
-    - ci
-    - release-*
+    - boilerplate
+    - idiomatic
+    - rc1
+    - rc2
+    - rc3
   pull_request:
 
 permissions:
