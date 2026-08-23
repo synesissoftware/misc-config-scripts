@@ -76,12 +76,7 @@ if ! command -v cb &>/dev/null; then
 		[ -t 1 ] && echo -e "\tAliasing cb to 'pbcopy'"
 
 		alias cb=pbcopy
-	fi
-fi
-
-if ! command -v cb &>/dev/null; then
-
-	if command -v clip &>/dev/null; then
+	elif command -v clip &>/dev/null; then
 
 		[ -t 1 ] && echo -e "\tAliasing cb to 'clip'"
 
