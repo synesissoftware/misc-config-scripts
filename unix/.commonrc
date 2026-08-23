@@ -346,9 +346,9 @@ if [ -d $HOME/.bin ]; then
 
 	if [ -n "$BASH_VERSION" ]; then
 
-		if compgen -G "$HOME/.bin/fn_*sh" > /dev/null; then
+		if compgen -G "$HOME/.bin/fn_*.sh" > /dev/null; then
 
-			for f in $HOME/.bin/fn_*sh
+			for f in $HOME/.bin/fn_*.sh
 			do
 
 				source "$f"
@@ -358,7 +358,7 @@ if [ -d $HOME/.bin ]; then
 
 		if [[ -o nullglob ]]; then
 
-			for f in $HOME/.bin/fn_*sh
+			for f in $HOME/.bin/fn_*.sh
 			do
 
 				source "$f"
@@ -367,7 +367,7 @@ if [ -d $HOME/.bin ]; then
 
 			setopt nullglob
 
-			for f in $HOME/.bin/fn_*sh
+			for f in $HOME/.bin/fn_*.sh
 			do
 
 				source "$f"
@@ -377,7 +377,7 @@ if [ -d $HOME/.bin ]; then
 		fi
 	else
 
-		for f in $HOME/.bin/fn_*sh
+		for f in $HOME/.bin/fn_*.sh
 		do
 
 			source "$f"
