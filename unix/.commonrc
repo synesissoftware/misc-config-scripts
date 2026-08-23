@@ -69,13 +69,23 @@ fi
 
 # cb - copy to clipboard
 
-if which pbcopy &>/dev/null; then
+if ! which cb &>/dev/null; then
 
-	if ! which cb &>/dev/null; then
+	if which pbcopy &>/dev/null; then
 
 		[ -t 1 ] && echo -e "\tAliasing cb to 'pbcopy'"
 
 		alias cb=pbcopy
+	fi
+fi
+
+if ! which cb &>/dev/null; then
+
+	if which clip &>/dev/null; then
+
+		[ -t 1 ] && echo -e "\tAliasing cb to 'clip'"
+
+		alias cb=clip
 	fi
 fi
 

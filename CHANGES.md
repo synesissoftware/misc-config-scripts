@@ -27,6 +27,7 @@
   * prevented Bash startup errors when no matching function scripts exist in `$HOME/.bin`;
   * prevented zsh startup errors when no matching function scripts exist in `$HOME/.bin`;
   * standardised function-script matching on the explicit `fn_*.sh` pattern;
+  * added a `clip` fallback for the `cb` clipboard alias;
 
 
 ## 0.8.0 - 17th August 2026
