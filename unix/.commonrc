@@ -354,6 +354,27 @@ if [ -d $HOME/.bin ]; then
 				source "$f"
 			done
 		fi
+	elif [ -n "$ZSH_VERSION" ]; then
+
+		if [[ -o nullglob ]]; then
+
+			for f in $HOME/.bin/fn_*sh
+			do
+
+				source "$f"
+			done
+		else
+
+			setopt nullglob
+
+			for f in $HOME/.bin/fn_*sh
+			do
+
+				source "$f"
+			done
+
+			unsetopt nullglob
+		fi
 	else
 
 		for f in $HOME/.bin/fn_*sh

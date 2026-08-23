@@ -25,6 +25,7 @@
 
 * **unix/.commonrc**:
   * prevented Bash startup errors when no matching function scripts exist in `$HOME/.bin`;
+  * prevented zsh startup errors when no matching function scripts exist in `$HOME/.bin`;
 
 
 ## 0.8.0 - 17th August 2026
