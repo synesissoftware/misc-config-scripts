@@ -69,9 +69,9 @@ fi
 
 # cb - copy to clipboard
 
-if ! which cb &>/dev/null; then
+if ! command -v cb &>/dev/null; then
 
-	if which pbcopy &>/dev/null; then
+	if command -v pbcopy &>/dev/null; then
 
 		[ -t 1 ] && echo -e "\tAliasing cb to 'pbcopy'"
 
@@ -79,9 +79,9 @@ if ! which cb &>/dev/null; then
 	fi
 fi
 
-if ! which cb &>/dev/null; then
+if ! command -v cb &>/dev/null; then
 
-	if which clip &>/dev/null; then
+	if command -v clip &>/dev/null; then
 
 		[ -t 1 ] && echo -e "\tAliasing cb to 'clip'"
 
@@ -92,7 +92,7 @@ fi
 
 # hist - show all history
 
-if ! which hist &>/dev/null; then
+if ! command -v hist &>/dev/null; then
 
 	if [ 0 -eq 1 ]; then
 
@@ -116,9 +116,9 @@ fi
 
 # ldd - list dynamic dependencies
 
-if ! which ldd &>/dev/null; then
+if ! command -v ldd &>/dev/null; then
 
-	if which otool &>/dev/null; then
+	if command -v otool &>/dev/null; then
 
 		[ -t 1 ] && echo -e "\tAliasing ldd to 'otool -L'"
 
@@ -131,7 +131,7 @@ fi
 
 if ! alias ll &>/dev/null; then
 
-	if which gls &>/dev/null; then
+	if command -v gls &>/dev/null; then
 
 		[ -t 1 ] && echo -e "\tAliasing ldd to 'gls --color=auto -a -F -G -h -l --group-directories-first'"
 
@@ -147,7 +147,7 @@ fi
 
 # vi - ensuring vi is vim, where vim present
 
-if which vim &>/dev/null; then
+if command -v vim &>/dev/null; then
 
 	if ! alias vi &>/dev/null; then
 

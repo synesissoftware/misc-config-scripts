@@ -28,6 +28,7 @@
   * prevented zsh startup errors when no matching function scripts exist in `$HOME/.bin`;
   * standardised function-script matching on the explicit `fn_*.sh` pattern;
   * added a `clip` fallback for the `cb` clipboard alias;
+  * replaced `which` checks with the shell built-in `command -v`;
 
 
 ## 0.8.0 - 17th August 2026
