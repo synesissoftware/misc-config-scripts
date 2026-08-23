@@ -4,7 +4,7 @@
 # Purpose:  A base .bashrc / .zshrc
 #
 # Created:  Many, many years ago
-# Updated:  17th August 2026
+# Updated:  23rd August 2026
 #
 # Author:   Matt Wilson
 #
@@ -344,11 +344,24 @@ fi
 
 if [ -d $HOME/.bin ]; then
 
-	for f in $HOME/.bin/fn_*sh
-	do
+	if [ -n "$BASH_VERSION" ]; then
 
-		source "$f"
-	done
+		if compgen -G "$HOME/.bin/fn_*sh" > /dev/null; then
+
+			for f in $HOME/.bin/fn_*sh
+			do
+
+				source "$f"
+			done
+		fi
+	else
+
+		for f in $HOME/.bin/fn_*sh
+		do
+
+			source "$f"
+		done
+	fi
 fi
 
 

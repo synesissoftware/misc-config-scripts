@@ -21,6 +21,12 @@
 - [0.0.0](#000)
 
 
+## 0.8.1 - 23rd August 2026
+
+* **unix/.commonrc**:
+  * prevented Bash startup errors when no matching function scripts exist in `$HOME/.bin`;
+
+
 ## 0.8.0 - 17th August 2026
 
 * **unix/.commonrc**:
