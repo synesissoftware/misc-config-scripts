@@ -4,7 +4,7 @@
 # Purpose:  A base .bashrc / .zshrc
 #
 # Created:  Many, many years ago
-# Updated:  17th August 2026
+# Updated:  23rd August 2026
 #
 # Author:   Matt Wilson
 #
@@ -69,20 +69,25 @@ fi
 
 # cb - copy to clipboard
 
-if which pbcopy &>/dev/null; then
+if ! command -v cb &>/dev/null; then
 
-	if ! which cb &>/dev/null; then
+	if command -v pbcopy &>/dev/null; then
 
 		[ -t 1 ] && echo -e "\tAliasing cb to 'pbcopy'"
 
 		alias cb=pbcopy
+	elif command -v clip &>/dev/null; then
+
+		[ -t 1 ] && echo -e "\tAliasing cb to 'clip'"
+
+		alias cb=clip
 	fi
 fi
 
 
 # hist - show all history
 
-if ! which hist &>/dev/null; then
+if ! command -v hist &>/dev/null; then
 
 	if [ 0 -eq 1 ]; then
 
@@ -106,9 +111,9 @@ fi
 
 # ldd - list dynamic dependencies
 
-if ! which ldd &>/dev/null; then
+if ! command -v ldd &>/dev/null; then
 
-	if which otool &>/dev/null; then
+	if command -v otool &>/dev/null; then
 
 		[ -t 1 ] && echo -e "\tAliasing ldd to 'otool -L'"
 
@@ -121,7 +126,7 @@ fi
 
 if ! alias ll &>/dev/null; then
 
-	if which gls &>/dev/null; then
+	if command -v gls &>/dev/null; then
 
 		[ -t 1 ] && echo -e "\tAliasing ldd to 'gls --color=auto -a -F -G -h -l --group-directories-first'"
 
@@ -137,7 +142,7 @@ fi
 
 # vi - ensuring vi is vim, where vim present
 
-if which vim &>/dev/null; then
+if command -v vim &>/dev/null; then
 
 	if ! alias vi &>/dev/null; then
 
@@ -344,11 +349,45 @@ fi
 
 if [ -d $HOME/.bin ]; then
 
-	for f in $HOME/.bin/fn_*sh
-	do
+	if [ -n "$BASH_VERSION" ]; then
 
-		source "$f"
-	done
+		if compgen -G "$HOME/.bin/fn_*.sh" > /dev/null; then
+
+			for f in $HOME/.bin/fn_*.sh
+			do
+
+				source "$f"
+			done
+		fi
+	elif [ -n "$ZSH_VERSION" ]; then
+
+		if [[ -o nullglob ]]; then
+
+			for f in $HOME/.bin/fn_*.sh
+			do
+
+				source "$f"
+			done
+		else
+
+			setopt nullglob
+
+			for f in $HOME/.bin/fn_*.sh
+			do
+
+				source "$f"
+			done
+
+			unsetopt nullglob
+		fi
+	else
+
+		for f in $HOME/.bin/fn_*.sh
+		do
+
+			source "$f"
+		done
+	fi
 fi
 
 
