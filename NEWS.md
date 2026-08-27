@@ -3,6 +3,7 @@
 
 | Date             | News Item                                                                                   |
 | ---------------- | ------------------------------------------------------------------------------------------- |
+| 23rd August 2026 | [0.8.1 released](https://github.com/synesissoftware/misc-config-scripts/releases/tag/0.8.1) |
 | 17th August 2026 | [0.8.0 released](https://github.com/synesissoftware/misc-config-scripts/releases/tag/0.8.0) |
 | 17th August 2026 | [0.7.0 released](https://github.com/synesissoftware/misc-config-scripts/releases/tag/0.7.0) |
 | 10th August 2026 | [0.6.1 released](https://github.com/synesissoftware/misc-config-scripts/releases/tag/0.6.1) |

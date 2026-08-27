@@ -21,6 +21,17 @@
 - [0.0.0](#000)
 
 
+## 0.8.1 - 23rd August 2026
+
+* **unix/.commonrc**:
+  * prevented Bash startup errors when no matching function scripts exist in `$HOME/.bin`;
+  * prevented zsh startup errors when no matching function scripts exist in `$HOME/.bin`;
+  * standardised function-script matching on the explicit `fn_*.sh` pattern;
+  * added a `clip` fallback for the `cb` clipboard alias;
+  * replaced `which` checks with the shell built-in `command -v`;
+  * simplified clipboard-alias fallback nesting while preserving `pbcopy` priority;
+
+
 ## 0.8.0 - 17th August 2026
 
 * **unix/.commonrc**:
