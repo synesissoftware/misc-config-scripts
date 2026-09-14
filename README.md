@@ -1,11 +1,11 @@
 # misc-config-scripts <!-- omit in toc -->
 
-Miscellaneous Configuration Scripts
 
+Miscellaneous Configuration Scripts
 
 ![Shells](https://img.shields.io/badge/shells-bash%20%7C%20zsh-blue.svg)
 [![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
-[![Version](https://img.shields.io/badge/version-0.8.0-blue.svg)](https://github.com/synesissoftware/misc-config-scripts/blob/master/CHANGES.md)
+[![Version](https://img.shields.io/badge/version-0.8.2-blue.svg)](https://github.com/synesissoftware/misc-config-scripts/blob/master/CHANGES.md)
 [![GitHub release](https://img.shields.io/github/v/release/synesissoftware/misc-config-scripts.svg)](https://github.com/synesissoftware/misc-config-scripts/releases/latest)
 [![Last Commit](https://img.shields.io/github/last-commit/synesissoftware/misc-config-scripts)](https://github.com/synesissoftware/misc-config-scripts/commits/master)
 [![CI](https://github.com/synesissoftware/misc-config-scripts/actions/workflows/ci.yml/badge.svg)](https://github.com/synesissoftware/misc-config-scripts/actions/workflows/ci.yml)
@@ -14,21 +14,37 @@ Miscellaneous Configuration Scripts
 ## Table of Contents <!-- omit in toc -->
 
 - [Introduction](#introduction)
+- [Ownership and migration (Phase 0)](#ownership-and-migration-phase-0)
 - [Bash/Zsh run-scripts](#bashzsh-run-scripts)
 - [Git configuration](#git-configuration)
-- [VS Code settings](#vs-code-settings)
-- [Git attributes](#git-attributes)
+- [VS Code settings (legacy catalog)](#vs-code-settings-legacy-catalog)
+- [Git attributes (legacy catalog)](#git-attributes-legacy-catalog)
 - [Related projects](#related-projects)
 - [Project Information](#project-information)
 
 
 ## Introduction
 
-**misc-config-scripts** is a collection of configuration resources intended to be **copied** into Synesis and related projects or developer environments.
+**misc-config-scripts** is a collection of **machine / shell environment** configuration resources intended to be **copied** into developer environments (and, historically, some project trees).
 
-The resources cover shell startup, Git, VS Code, and GitHub-hosted repository attributes. Each resource has a canonical copy in this repository; consuming projects should record the relevant **VERSION** in their **CHANGES.md** when updating.
+**Target product surface (after cutover):** **`.commonrc`** and **`.gitconfig`** only. Language-specific **project** drop-ins (**`.editorconfig`**, **`.gitattributes`**, **`.gitignore`**, **`.vimrc`**, **`.vscode/settings.json`**) move to [**misc-dev-scripts**](https://github.com/synesissoftware/misc-dev-scripts) `templates/`.
 
-Sibling project: [**misc-dev-scripts**](https://github.com/synesissoftware/misc-dev-scripts) (development and test-runner scripts).
+Each resource has a canonical copy in its owning repository; consuming projects should record the relevant **VERSION** in their **CHANGES.md** when updating.
+
+Sibling project: [**misc-dev-scripts**](https://github.com/synesissoftware/misc-dev-scripts) (project helpers and project drop-in templates).
+
+
+## Ownership and migration (Phase 0)
+
+**Status: intent declared — cutover not complete.** Do not dual-ship new language templates here.
+
+| Kind | This repo | **misc-dev-scripts** |
+| --- | --- | --- |
+| **Self** (this repository’s own) **`.editorconfig`**, **`.gitattributes`**, **`.gitignore`**, **`.vimrc`**, **`.vscode/settings.json`** | ✅ (complete in a later phase if still missing) | ✅ |
+| **Templates:** **`.gitconfig`**, **`.commonrc`** | ✅ only | ❌ |
+| **Templates:** language-specific **`run_all_unit_tests.sh`**, **`.editorconfig`**, **`.gitattributes`**, **`.gitignore`**, **`.vimrc`**, **`.vscode/settings.json`** | ❌ (legacy trees frozen) | ✅ only |
+
+**Freeze:** do **not** add new language directories or expand the product catalogs under **`settings.json/`** or **`gitattributes/`**. Fix defects in place if required; new work belongs under **misc-dev-scripts** `templates/`.
 
 
 ## Bash/Zsh run-scripts
@@ -73,7 +89,9 @@ Sibling project: [**misc-dev-scripts**](https://github.com/synesissoftware/misc-
   * `simple` pull behaviour.
 
 
-## VS Code settings
+## VS Code settings (legacy catalog)
+
+> **Deprecated for new work.** Canonical home after cutover: **misc-dev-scripts** `templates/vscode/`. This tree remains until migration completes.
 
 Drop-in workspace settings are provided as **.vscode/settings.json** templates under **settings.json/**.
 
@@ -84,7 +102,9 @@ Drop-in workspace settings are provided as **.vscode/settings.json** templates u
 See [**settings.json/README.md**](./settings.json/README.md) for the template conventions, contents, and layout.
 
 
-## Git attributes
+## Git attributes (legacy catalog)
+
+> **Deprecated for new work.** Canonical home after cutover: **misc-dev-scripts** `templates/gitattributes/`. This tree remains until migration completes.
 
 Drop-in root **.gitattributes** templates are provided under **gitattributes/**.
 
@@ -98,7 +118,7 @@ See [**gitattributes/README.md**](./gitattributes/README.md) for the template co
 
 ## Related projects
 
-A peer project providing development and test-runner scripts is [**misc-dev-scripts**](https://github.com/synesissoftware/misc-dev-scripts).
+A peer project providing development helpers and project drop-in templates is [**misc-dev-scripts**](https://github.com/synesissoftware/misc-dev-scripts).
 
 
 ## Project Information

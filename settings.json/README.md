@@ -1,6 +1,9 @@
 # VS Code `settings.json` templates <!-- omit in toc -->
 
 
+> **Legacy catalog (frozen).** Phase 0 ownership: new work and the eventual canonical home are **misc-dev-scripts** `templates/vscode/`. Do **not** add language directories here; defect fixes only until cutover.
+
+
 Drop-in workspace settings for Synesis / related projects, organised by primary language.
 
 

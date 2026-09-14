@@ -1,6 +1,9 @@
 # `.gitattributes` templates <!-- omit in toc -->
 
 
+> **Legacy catalog (frozen).** Phase 0 ownership: new work and the eventual canonical home are **misc-dev-scripts** `templates/gitattributes/`. Do **not** add language directories here; defect fixes only until cutover.
+
+
 Drop-in root **`.gitattributes`** files for GitHub-hosted repositories, organised by primary language.
 
 These templates were written from first principles using public documentation and community templates — **not** from local Synesis / related repositories.
