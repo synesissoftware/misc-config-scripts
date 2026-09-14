@@ -34,6 +34,8 @@ When updating a consumer, cite this repository’s **VERSION** in that project�
 
 ## Ownership
 
+**Phase 4:** self **`.vscode/settings.json`**, **`.gitignore`**, and **`.gitattributes`** are aligned with **misc-dev-scripts** `templates/` gold (shell / docs form for attributes); **`.editorconfig`** / **`.vimrc`** remain shell / docs self files.
+
 | Kind | This repo | **misc-dev-scripts** |
 | --- | --- | --- |
 | **Self** (this repository’s own) **`.editorconfig`**, **`.gitattributes`**, **`.gitignore`**, **`.vimrc`**, **`.vscode/settings.json`** | ✅ | ✅ |
