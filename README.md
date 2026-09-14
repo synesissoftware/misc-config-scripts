@@ -5,7 +5,7 @@ Miscellaneous Configuration Scripts
 
 ![Shells](https://img.shields.io/badge/shells-bash%20%7C%20zsh-blue.svg)
 [![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
-[![Version](https://img.shields.io/badge/version-0.8.3-blue.svg)](https://github.com/synesissoftware/misc-config-scripts/blob/master/CHANGES.md)
+[![Version](https://img.shields.io/badge/version-0.8.4-blue.svg)](https://github.com/synesissoftware/misc-config-scripts/blob/master/CHANGES.md)
 [![GitHub release](https://img.shields.io/github/v/release/synesissoftware/misc-config-scripts.svg)](https://github.com/synesissoftware/misc-config-scripts/releases/latest)
 [![Last Commit](https://img.shields.io/github/last-commit/synesissoftware/misc-config-scripts)](https://github.com/synesissoftware/misc-config-scripts/commits/master)
 [![CI](https://github.com/synesissoftware/misc-config-scripts/actions/workflows/ci.yml/badge.svg)](https://github.com/synesissoftware/misc-config-scripts/actions/workflows/ci.yml)
@@ -36,7 +36,7 @@ Sibling project: [**misc-dev-scripts**](https://github.com/synesissoftware/misc-
 
 ## Ownership and migration (Phase 0)
 
-**Status: Phase 0–1 done for ownership declaration and self boilerplate — catalog cutover not complete.** Do not dual-ship new language templates here.
+**Status: Phase 2 complete for template population — Phase 3 will remove legacy catalogs here.** Do not dual-ship new language templates here.
 
 | Kind | This repo | **misc-dev-scripts** |
 | --- | --- | --- |
@@ -91,7 +91,7 @@ Sibling project: [**misc-dev-scripts**](https://github.com/synesissoftware/misc-
 
 ## VS Code settings (legacy catalog)
 
-> **Deprecated for new work.** Canonical home after cutover: **misc-dev-scripts** `templates/vscode/`. This tree remains until migration completes.
+> **Deprecated for new work — prefer misc-dev-scripts 0.6.0+.** Canonical home: **misc-dev-scripts** `templates/vscode/`. This tree remains until Phase 3 removal.
 
 Drop-in workspace settings are provided as **.vscode/settings.json** templates under **settings.json/**.
 
@@ -104,7 +104,7 @@ See [**settings.json/README.md**](./settings.json/README.md) for the template co
 
 ## Git attributes (legacy catalog)
 
-> **Deprecated for new work.** Canonical home after cutover: **misc-dev-scripts** `templates/gitattributes/`. This tree remains until migration completes.
+> **Deprecated for new work — prefer misc-dev-scripts 0.6.0+.** Canonical home: **misc-dev-scripts** `templates/gitattributes/`. This tree remains until Phase 3 removal.
 
 Drop-in root **.gitattributes** templates are provided under **gitattributes/**.
 

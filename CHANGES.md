@@ -3,6 +3,7 @@
 
 ## Table of Contents <!-- omit in toc -->
 
+- [0.8.4](#084)
 - [0.8.3](#083)
 - [0.8.2](#082)
 - [0.8.1](#081)
@@ -22,6 +23,12 @@
 - [0.0.2](#002)
 - [0.0.1](#001)
 - [0.0.0](#000)
+
+
+## 0.8.4 - 15th September 2026
+
+* Phase 2 companion: document that **misc-dev-scripts** **0.6.0** `templates/` is now the canonical home for language-specific project drop-ins;
+* Updated **README.md** legacy-catalog banners to point consumers at **misc-dev-scripts** **0.6.0+** (trees retained until Phase 3);
 
 
 ## 0.8.3 - 15th September 2026

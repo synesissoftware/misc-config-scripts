@@ -3,6 +3,7 @@
 
 | Date                 | News Item                                                                                                                         | Details                                      |
 | -------------------- | --------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- |
+| 15th September 2026  | [**misc-config-scripts** 0.8.4](https://github.com/synesissoftware/misc-config-scripts/releases/tag/0.8.4) released                 | Point consumers at m-d-s 0.6.0 templates      |
 | 15th September 2026  | [**misc-config-scripts** 0.8.3](https://github.com/synesissoftware/misc-config-scripts/releases/tag/0.8.3) released                 | Phase 1 self `.editorconfig` / `.vimrc`      |
 | 15th September 2026  | [**misc-config-scripts** 0.8.2](https://github.com/synesissoftware/misc-config-scripts/releases/tag/0.8.2) released                 | Phase 0 ownership; freeze project catalogs   |
 | 27th August 2026     | [**misc-config-scripts** 0.8.1](https://github.com/synesissoftware/misc-config-scripts/releases/tag/0.8.1) released                 | `.commonrc` startup and clipboard fixes      |
