@@ -3,6 +3,7 @@
 
 ## Table of Contents <!-- omit in toc -->
 
+- [0.9.0](#090)
 - [0.8.4](#084)
 - [0.8.3](#083)
 - [0.8.2](#082)
@@ -23,6 +24,13 @@
 - [0.0.2](#002)
 - [0.0.1](#001)
 - [0.0.0](#000)
+
+
+## 0.9.0 - 15th September 2026
+
+* Phase 3: removed legacy product catalogs **settings.json/** and **gitattributes/** (canonical copies are **misc-dev-scripts** **0.6.0+** `templates/vscode/` and `templates/gitattributes/`);
+* **README.md** product surface is now **`.commonrc`** and **`.gitconfig`** only;
+* Root **`.gitattributes`**: dropped nested `**/.gitattributes` Linguist rule (no longer shipping a `gitattributes/` product tree);
 
 
 ## 0.8.4 - 15th September 2026
