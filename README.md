@@ -5,7 +5,7 @@ Miscellaneous Configuration Scripts
 
 ![Shells](https://img.shields.io/badge/shells-bash%20%7C%20zsh-blue.svg)
 [![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
-[![Version](https://img.shields.io/badge/version-0.8.2-blue.svg)](https://github.com/synesissoftware/misc-config-scripts/blob/master/CHANGES.md)
+[![Version](https://img.shields.io/badge/version-0.8.3-blue.svg)](https://github.com/synesissoftware/misc-config-scripts/blob/master/CHANGES.md)
 [![GitHub release](https://img.shields.io/github/v/release/synesissoftware/misc-config-scripts.svg)](https://github.com/synesissoftware/misc-config-scripts/releases/latest)
 [![Last Commit](https://img.shields.io/github/last-commit/synesissoftware/misc-config-scripts)](https://github.com/synesissoftware/misc-config-scripts/commits/master)
 [![CI](https://github.com/synesissoftware/misc-config-scripts/actions/workflows/ci.yml/badge.svg)](https://github.com/synesissoftware/misc-config-scripts/actions/workflows/ci.yml)
@@ -36,11 +36,11 @@ Sibling project: [**misc-dev-scripts**](https://github.com/synesissoftware/misc-
 
 ## Ownership and migration (Phase 0)
 
-**Status: intent declared — cutover not complete.** Do not dual-ship new language templates here.
+**Status: Phase 0–1 done for ownership declaration and self boilerplate — catalog cutover not complete.** Do not dual-ship new language templates here.
 
 | Kind | This repo | **misc-dev-scripts** |
 | --- | --- | --- |
-| **Self** (this repository’s own) **`.editorconfig`**, **`.gitattributes`**, **`.gitignore`**, **`.vimrc`**, **`.vscode/settings.json`** | ✅ (complete in a later phase if still missing) | ✅ |
+| **Self** (this repository’s own) **`.editorconfig`**, **`.gitattributes`**, **`.gitignore`**, **`.vimrc`**, **`.vscode/settings.json`** | ✅ | ✅ |
 | **Templates:** **`.gitconfig`**, **`.commonrc`** | ✅ only | ❌ |
 | **Templates:** language-specific **`run_all_unit_tests.sh`**, **`.editorconfig`**, **`.gitattributes`**, **`.gitignore`**, **`.vimrc`**, **`.vscode/settings.json`** | ❌ (legacy trees frozen) | ✅ only |
 

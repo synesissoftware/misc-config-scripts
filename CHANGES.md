@@ -3,6 +3,7 @@
 
 ## Table of Contents <!-- omit in toc -->
 
+- [0.8.3](#083)
 - [0.8.2](#082)
 - [0.8.1](#081)
 - [0.8.0](#080)
@@ -21,6 +22,14 @@
 - [0.0.2](#002)
 - [0.0.1](#001)
 - [0.0.0](#000)
+
+
+## 0.8.3 - 15th September 2026
+
+* Phase 1 self boilerplate:
+  * added **`.editorconfig`** (shell / docs catalog: UTF-8, LF, shell 2-space, markdown/json/yaml);
+  * replaced root **`.vimrc`** C/C++ consumer gold with shell / docs **self** **`.vimrc`** (aligned with **`.vscode/settings.json`**);
+  * confirmed **`.gitattributes`**, **`.gitignore`**, and **`.vscode/settings.json`** remain present as self files;
 
 
 ## 0.8.2 - 15th September 2026
