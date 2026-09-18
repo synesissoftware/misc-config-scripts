@@ -3,8 +3,6 @@
 
 ## Table of Contents <!-- omit in toc -->
 
-- [0.8.4](#084)
-- [0.8.3](#083)
 - [0.8.2](#082)
 - [0.8.1](#081)
 - [0.8.0](#080)
@@ -25,22 +23,14 @@
 - [0.0.0](#000)
 
 
-## 0.8.4 - 15th September 2026
+## 0.8.2 - 18th September 2026
 
 * Phase 2 companion: document that **misc-dev-scripts** **0.6.0** `templates/` is now the canonical home for language-specific project drop-ins;
 * Updated **README.md** legacy-catalog banners to point consumers at **misc-dev-scripts** **0.6.0+** (trees retained until Phase 3);
-
-
-## 0.8.3 - 15th September 2026
-
 * Phase 1 self boilerplate:
   * added **`.editorconfig`** (shell / docs catalog: UTF-8, LF, shell 2-space, markdown/json/yaml);
   * replaced root **`.vimrc`** C/C++ consumer gold with shell / docs **self** **`.vimrc`** (aligned with **`.vscode/settings.json`**);
   * confirmed **`.gitattributes`**, **`.gitignore`**, and **`.vscode/settings.json`** remain present as self files;
-
-
-## 0.8.2 - 15th September 2026
-
 * Declared Phase 0 ownership with **misc-dev-scripts**: this repo keeps **`.commonrc`** / **`.gitconfig`** templates; language-specific project drop-ins migrate to **misc-dev-scripts** `templates/`;
 * Froze **settings.json/** and **gitattributes/** product catalogs (no new language templates; defect fixes only until cutover);
 * Updated **README.md** (ownership table; legacy-catalog banners; sibling role);
