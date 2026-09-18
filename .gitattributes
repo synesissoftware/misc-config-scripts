@@ -1,5 +1,37 @@
-*.commonrc linguist-language=Shell
+# .gitattributes — misc-config-scripts (shell / docs catalog self)
+#
+# Self boilerplate for this repository. Project drop-in templates live in
+# misc-dev-scripts templates/gitattributes/.
+
+# Default: detect text, normalize to LF in the repository
+* text=auto
+
+# --- Scripts / shell rc ---
+*.bash text eol=lf linguist-language=Shell
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.commonrc text eol=lf linguist-language=Shell
+*.ps1 text eol=crlf
+*.sh text eol=lf linguist-language=Shell
+*.zsh text eol=lf linguist-language=Shell
+
+# --- Docs / meta ---
+*.markdown text diff=markdown
+*.md text diff=markdown
+*.txt text
+.gitattributes text
+.gitignore text
+CHANGES text
+LICENSE text
+NEWS text
+README text
+TODO text
+VERSION text
+
+# --- Config ---
+*.json text
+*.yaml text
+*.yml text
 .gitattributes -linguist-vendored linguist-language=Git-Attributes linguist-detectable
-**/.gitattributes -linguist-vendored linguist-language=Git-Attributes linguist-detectable
 settings.json linguist-language=JSON-with-Comments linguist-detectable
 **/settings.json linguist-language=JSON-with-Comments linguist-detectable

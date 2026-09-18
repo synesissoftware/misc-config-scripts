@@ -3,6 +3,8 @@
 
 ## Table of Contents <!-- omit in toc -->
 
+- [0.8.2](#082)
+- [0.8.1](#081)
 - [0.8.0](#080)
 - [0.7.0](#070)
 - [0.6.1](#061)
@@ -19,6 +21,27 @@
 - [0.0.2](#002)
 - [0.0.1](#001)
 - [0.0.0](#000)
+
+
+## 0.8.2 - 18th September 2026
+
+* **README.md** product surface is now **`.commonrc`** and **`.gitconfig`** only;
+* Root **`.gitattributes`**: dropped nested `**/.gitattributes` Linguist rule (no longer shipping a `gitattributes/` product tree);
+* Updated **README.md** legacy-catalog banners to point consumers at **misc-dev-scripts** **0.6.0+** (trees retained until Phase 3);
+* Phase 4: align self boilerplate with **misc-dev-scripts** **templates/** gold:
+  * confirmed **`.vscode/settings.json`** byte-identical to **templates/vscode/generic/settings.json**;
+  * refreshed **`.gitignore`** from **templates/gitignore/generic/**;
+  * normalised self **`.gitattributes`** to shell / docs catalog form (kept **`*.commonrc`** Linguist rule);
+  * retained shell / docs **`.editorconfig`** and **`.vimrc`**;
+* Phase 3: removed legacy product catalogs **settings.json/** and **gitattributes/** (canonical copies are **misc-dev-scripts** **0.6.0+** `templates/vscode/` and `templates/gitattributes/`);
+* Phase 2 companion: document that **misc-dev-scripts** **0.6.0** `templates/` is now the canonical home for language-specific project drop-ins;
+* Phase 1 self boilerplate:
+  * added **`.editorconfig`** (shell / docs catalog: UTF-8, LF, shell 2-space, markdown/json/yaml);
+  * replaced root **`.vimrc`** C/C++ consumer gold with shell / docs **self** **`.vimrc`** (aligned with **`.vscode/settings.json`**);
+  * confirmed **`.gitattributes`**, **`.gitignore`**, and **`.vscode/settings.json`** remain present as self files;
+* Declared Phase 0 ownership with **misc-dev-scripts**: this repo keeps **`.commonrc`** / **`.gitconfig`** templates; language-specific project drop-ins migrate to **misc-dev-scripts** `templates/`;
+* Froze **settings.json/** and **gitattributes/** product catalogs (no new language templates; defect fixes only until cutover);
+* Updated **README.md** (ownership table; legacy-catalog banners; sibling role);
 
 
 ## 0.8.1 - 27th August 2026

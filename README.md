@@ -1,11 +1,11 @@
 # misc-config-scripts <!-- omit in toc -->
 
-Miscellaneous Configuration Scripts
 
+Miscellaneous Configuration Scripts
 
 ![Shells](https://img.shields.io/badge/shells-bash%20%7C%20zsh-blue.svg)
 [![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
-[![Version](https://img.shields.io/badge/version-0.8.0-blue.svg)](https://github.com/synesissoftware/misc-config-scripts/blob/master/CHANGES.md)
+[![Version](https://img.shields.io/badge/version-0.8.2-blue.svg)](https://github.com/synesissoftware/misc-config-scripts/blob/master/CHANGES.md)
 [![GitHub release](https://img.shields.io/github/v/release/synesissoftware/misc-config-scripts.svg)](https://github.com/synesissoftware/misc-config-scripts/releases/latest)
 [![Last Commit](https://img.shields.io/github/last-commit/synesissoftware/misc-config-scripts)](https://github.com/synesissoftware/misc-config-scripts/commits/master)
 [![CI](https://github.com/synesissoftware/misc-config-scripts/actions/workflows/ci.yml/badge.svg)](https://github.com/synesissoftware/misc-config-scripts/actions/workflows/ci.yml)
@@ -14,21 +14,33 @@ Miscellaneous Configuration Scripts
 ## Table of Contents <!-- omit in toc -->
 
 - [Introduction](#introduction)
+- [Ownership](#ownership)
 - [Bash/Zsh run-scripts](#bashzsh-run-scripts)
 - [Git configuration](#git-configuration)
-- [VS Code settings](#vs-code-settings)
-- [Git attributes](#git-attributes)
 - [Related projects](#related-projects)
 - [Project Information](#project-information)
 
 
 ## Introduction
 
-**misc-config-scripts** is a collection of configuration resources intended to be **copied** into Synesis and related projects or developer environments.
+**misc-config-scripts** is a collection of **machine / shell environment** configuration resources intended to be **copied** into developer environments.
 
-The resources cover shell startup, Git, VS Code, and GitHub-hosted repository attributes. Each resource has a canonical copy in this repository; consuming projects should record the relevant **VERSION** in their **CHANGES.md** when updating.
+**Product surface:** **`.commonrc`** (**unix/.commonrc**) and **`.gitconfig`** (**git/.gitconfig**) only.
 
-Sibling project: [**misc-dev-scripts**](https://github.com/synesissoftware/misc-dev-scripts) (development and test-runner scripts).
+Language-specific **project** drop-ins (**`.editorconfig`**, **`.gitattributes`**, **`.gitignore`**, **`.vimrc`**, **`.vscode/settings.json`**) and helpers such as **`run_all_unit_tests.sh`** live in [**misc-dev-scripts**](https://github.com/synesissoftware/misc-dev-scripts) (`templates/` and `shell-scripts/`).
+
+When updating a consumer, cite this repository’s **VERSION** in that project’s **CHANGES.md**.
+
+
+## Ownership
+
+**Phase 4:** self **`.vscode/settings.json`**, **`.gitignore`**, and **`.gitattributes`** are aligned with **misc-dev-scripts** `templates/` gold (shell / docs form for attributes); **`.editorconfig`** / **`.vimrc`** remain shell / docs self files.
+
+| Kind | This repo | **misc-dev-scripts** |
+| --- | --- | --- |
+| **Self** (this repository’s own) **`.editorconfig`**, **`.gitattributes`**, **`.gitignore`**, **`.vimrc`**, **`.vscode/settings.json`** | ✅ | ✅ |
+| **Templates:** **`.gitconfig`**, **`.commonrc`** | ✅ only | ❌ |
+| **Templates:** language-specific **`run_all_unit_tests.sh`**, **`.editorconfig`**, **`.gitattributes`**, **`.gitignore`**, **`.vimrc`**, **`.vscode/settings.json`** | ❌ | ✅ only |
 
 
 ## Bash/Zsh run-scripts
@@ -73,32 +85,9 @@ Sibling project: [**misc-dev-scripts**](https://github.com/synesissoftware/misc-
   * `simple` pull behaviour.
 
 
-## VS Code settings
-
-Drop-in workspace settings are provided as **.vscode/settings.json** templates under **settings.json/**.
-
-* Language-specific templates cover C, C++, C#, Go, JavaScript, Python, Ruby, Rust, and Zig;
-* **settings.json/generic/settings.json** provides a union for mixed-language workspaces; and
-* templates establish shared formatting, whitespace, ruler, and language-tooling preferences without machine-specific paths.
-
-See [**settings.json/README.md**](./settings.json/README.md) for the template conventions, contents, and layout.
-
-
-## Git attributes
-
-Drop-in root **.gitattributes** templates are provided under **gitattributes/**.
-
-* Language-specific templates cover C, C++, C#, Go, JavaScript, Python, Ruby, Rust, and Zig;
-* **gitattributes/c_cxx/.gitattributes** combines the C and C++ rules for mixed native-language projects;
-* **gitattributes/generic/.gitattributes** provides a union of all language templates; and
-* templates normalise text to LF, identify common binaries, configure language-aware diffs, and mark common generated build paths.
-
-See [**gitattributes/README.md**](./gitattributes/README.md) for the template conventions, sources, and usage.
-
-
 ## Related projects
 
-A peer project providing development and test-runner scripts is [**misc-dev-scripts**](https://github.com/synesissoftware/misc-dev-scripts).
+A peer project providing development helpers and project drop-in templates is [**misc-dev-scripts**](https://github.com/synesissoftware/misc-dev-scripts) (**0.6.0+** `templates/` and `shell-scripts/`).
 
 
 ## Project Information
