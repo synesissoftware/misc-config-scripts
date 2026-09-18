@@ -3,6 +3,8 @@
 
 ## Table of Contents <!-- omit in toc -->
 
+- [0.8.2](#082)
+- [0.8.1](#081)
 - [0.8.0](#080)
 - [0.7.0](#070)
 - [0.6.1](#061)
@@ -19,6 +21,13 @@
 - [0.0.2](#002)
 - [0.0.1](#001)
 - [0.0.0](#000)
+
+
+## 0.8.2 - 15th September 2026
+
+* Declared Phase 0 ownership with **misc-dev-scripts**: this repo keeps **`.commonrc`** / **`.gitconfig`** templates; language-specific project drop-ins migrate to **misc-dev-scripts** `templates/`;
+* Froze **settings.json/** and **gitattributes/** product catalogs (no new language templates; defect fixes only until cutover);
+* Updated **README.md** (ownership table; legacy-catalog banners; sibling role);
 
 
 ## 0.8.1 - 27th August 2026
