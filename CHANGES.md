@@ -28,6 +28,11 @@
 * Phase 3: removed legacy product catalogs **settings.json/** and **gitattributes/** (canonical copies are **misc-dev-scripts** **0.6.0+** `templates/vscode/` and `templates/gitattributes/`);
 * **README.md** product surface is now **`.commonrc`** and **`.gitconfig`** only;
 * Root **`.gitattributes`**: dropped nested `**/.gitattributes` Linguist rule (no longer shipping a `gitattributes/` product tree);
+* Phase 4: align self boilerplate with **misc-dev-scripts** **templates/** gold:
+  * confirmed **`.vscode/settings.json`** byte-identical to **templates/vscode/generic/settings.json**;
+  * refreshed **`.gitignore`** from **templates/gitignore/generic/**;
+  * normalised self **`.gitattributes`** to shell / docs catalog form (kept **`*.commonrc`** Linguist rule);
+  * retained shell / docs **`.editorconfig`** and **`.vimrc`**;
 * Phase 2 companion: document that **misc-dev-scripts** **0.6.0** `templates/` is now the canonical home for language-specific project drop-ins;
 * Updated **README.md** legacy-catalog banners to point consumers at **misc-dev-scripts** **0.6.0+** (trees retained until Phase 3);
 * Phase 1 self boilerplate:
