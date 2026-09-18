@@ -3,7 +3,7 @@
 
 | Date                 | News Item                                                                                                                         | Details                                      |
 | -------------------- | --------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- |
-| 18th September 2026  | [**misc-config-scripts** 0.8.2](https://github.com/synesissoftware/misc-config-scripts/releases/tag/0.8.2) released                 | Phase 0–1 ownership, freeze, self boilerplate |
+| 18th September 2026  | [**misc-config-scripts** 0.8.2](https://github.com/synesissoftware/misc-config-scripts/releases/tag/0.8.2) released                 | Phase 0–2 ownership, self boilerplate, m-d-s |
 | 27th August 2026     | [**misc-config-scripts** 0.8.1](https://github.com/synesissoftware/misc-config-scripts/releases/tag/0.8.1) released                 | `.commonrc` startup and clipboard fixes      |
 | 17th August 2026     | [**misc-config-scripts** 0.8.0](https://github.com/synesissoftware/misc-config-scripts/releases/tag/0.8.0) released                 | Git prompt status counts                     |
 | 17th August 2026     | [**misc-config-scripts** 0.7.0](https://github.com/synesissoftware/misc-config-scripts/releases/tag/0.7.0) released                 | Combined C / C++ `.gitattributes`            |

@@ -25,6 +25,8 @@
 
 ## 0.8.2 - 18th September 2026
 
+* Phase 2 companion: document that **misc-dev-scripts** **0.6.0** `templates/` is now the canonical home for language-specific project drop-ins;
+* Updated **README.md** legacy-catalog banners to point consumers at **misc-dev-scripts** **0.6.0+** (trees retained until Phase 3);
 * Phase 1 self boilerplate:
   * added **`.editorconfig`** (shell / docs catalog: UTF-8, LF, shell 2-space, markdown/json/yaml);
   * replaced root **`.vimrc`** C/C++ consumer gold with shell / docs **self** **`.vimrc`** (aligned with **`.vscode/settings.json`**);
