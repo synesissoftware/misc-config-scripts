@@ -23,8 +23,12 @@
 - [0.0.0](#000)
 
 
-## 0.8.2 - 15th September 2026
+## 0.8.2 - 18th September 2026
 
+* Phase 1 self boilerplate:
+  * added **`.editorconfig`** (shell / docs catalog: UTF-8, LF, shell 2-space, markdown/json/yaml);
+  * replaced root **`.vimrc`** C/C++ consumer gold with shell / docs **self** **`.vimrc`** (aligned with **`.vscode/settings.json`**);
+  * confirmed **`.gitattributes`**, **`.gitignore`**, and **`.vscode/settings.json`** remain present as self files;
 * Declared Phase 0 ownership with **misc-dev-scripts**: this repo keeps **`.commonrc`** / **`.gitconfig`** templates; language-specific project drop-ins migrate to **misc-dev-scripts** `templates/`;
 * Froze **settings.json/** and **gitattributes/** product catalogs (no new language templates; defect fixes only until cutover);
 * Updated **README.md** (ownership table; legacy-catalog banners; sibling role);

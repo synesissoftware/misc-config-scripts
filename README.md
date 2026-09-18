@@ -36,11 +36,11 @@ Sibling project: [**misc-dev-scripts**](https://github.com/synesissoftware/misc-
 
 ## Ownership and migration (Phase 0)
 
-**Status: intent declared — cutover not complete.** Do not dual-ship new language templates here.
+**Status: Phase 0–1 done for ownership declaration and self boilerplate — catalog cutover not complete.** Do not dual-ship new language templates here.
 
 | Kind | This repo | **misc-dev-scripts** |
 | --- | --- | --- |
-| **Self** (this repository’s own) **`.editorconfig`**, **`.gitattributes`**, **`.gitignore`**, **`.vimrc`**, **`.vscode/settings.json`** | ✅ (complete in a later phase if still missing) | ✅ |
+| **Self** (this repository’s own) **`.editorconfig`**, **`.gitattributes`**, **`.gitignore`**, **`.vimrc`**, **`.vscode/settings.json`** | ✅ | ✅ |
 | **Templates:** **`.gitconfig`**, **`.commonrc`** | ✅ only | ❌ |
 | **Templates:** language-specific **`run_all_unit_tests.sh`**, **`.editorconfig`**, **`.gitattributes`**, **`.gitignore`**, **`.vimrc`**, **`.vscode/settings.json`** | ❌ (legacy trees frozen) | ✅ only |
 

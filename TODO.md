@@ -22,7 +22,7 @@
 ## Packaging improvements
 
 * [x] ~~~Phase 0: declare ownership with **misc-dev-scripts**; freeze **settings.json/** and **gitattributes/** product catalogs~~~ - ✅;
-* [ ] Phase 1: complete **self** boilerplate for this repo (**`.editorconfig`**, **`.vimrc`**; confirm **`.gitattributes`**, **`.gitignore`**, **`.vscode/settings.json`**);
+* [x] ~~~Phase 1: complete **self** boilerplate for this repo (**`.editorconfig`**, **`.vimrc`**; confirm **`.gitattributes`**, **`.gitignore`**, **`.vscode/settings.json`**)~~~ - ✅;
 * [ ] Phase 3: after **misc-dev-scripts** populates **`templates/`**, remove legacy **settings.json/** and **gitattributes/** product trees; README product surface = **`.commonrc`** + **`.gitconfig`** only;
 * [ ] Add sample **.bashrc** and **.zshrc** files under **unix/** to bootstrap **unix/.commonrc** cleanly;
 * [x] ~~~Add GitHub Actions workflow (**ci.yml**) to validate **unix/.commonrc** syntax~~~ ✅;
