@@ -1,5 +1,4 @@
 *.commonrc linguist-language=Shell
 .gitattributes -linguist-vendored linguist-language=Git-Attributes linguist-detectable
-**/.gitattributes -linguist-vendored linguist-language=Git-Attributes linguist-detectable
 settings.json linguist-language=JSON-with-Comments linguist-detectable
 **/settings.json linguist-language=JSON-with-Comments linguist-detectable

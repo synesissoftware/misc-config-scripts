@@ -14,37 +14,31 @@ Miscellaneous Configuration Scripts
 ## Table of Contents <!-- omit in toc -->
 
 - [Introduction](#introduction)
-- [Ownership and migration (Phase 0)](#ownership-and-migration-phase-0)
+- [Ownership](#ownership)
 - [Bash/Zsh run-scripts](#bashzsh-run-scripts)
 - [Git configuration](#git-configuration)
-- [VS Code settings (legacy catalog)](#vs-code-settings-legacy-catalog)
-- [Git attributes (legacy catalog)](#git-attributes-legacy-catalog)
 - [Related projects](#related-projects)
 - [Project Information](#project-information)
 
 
 ## Introduction
 
-**misc-config-scripts** is a collection of **machine / shell environment** configuration resources intended to be **copied** into developer environments (and, historically, some project trees).
+**misc-config-scripts** is a collection of **machine / shell environment** configuration resources intended to be **copied** into developer environments.
 
-**Target product surface (after cutover):** **`.commonrc`** and **`.gitconfig`** only. Language-specific **project** drop-ins (**`.editorconfig`**, **`.gitattributes`**, **`.gitignore`**, **`.vimrc`**, **`.vscode/settings.json`**) move to [**misc-dev-scripts**](https://github.com/synesissoftware/misc-dev-scripts) `templates/`.
+**Product surface:** **`.commonrc`** (**unix/.commonrc**) and **`.gitconfig`** (**git/.gitconfig**) only.
 
-Each resource has a canonical copy in its owning repository; consuming projects should record the relevant **VERSION** in their **CHANGES.md** when updating.
+Language-specific **project** drop-ins (**`.editorconfig`**, **`.gitattributes`**, **`.gitignore`**, **`.vimrc`**, **`.vscode/settings.json`**) and helpers such as **`run_all_unit_tests.sh`** live in [**misc-dev-scripts**](https://github.com/synesissoftware/misc-dev-scripts) (`templates/` and `shell-scripts/`).
 
-Sibling project: [**misc-dev-scripts**](https://github.com/synesissoftware/misc-dev-scripts) (project helpers and project drop-in templates).
+When updating a consumer, cite this repository’s **VERSION** in that project’s **CHANGES.md**.
 
 
-## Ownership and migration (Phase 0)
-
-**Status: Phase 2 complete for template population — Phase 3 will remove legacy catalogs here.** Do not dual-ship new language templates here.
+## Ownership
 
 | Kind | This repo | **misc-dev-scripts** |
 | --- | --- | --- |
 | **Self** (this repository’s own) **`.editorconfig`**, **`.gitattributes`**, **`.gitignore`**, **`.vimrc`**, **`.vscode/settings.json`** | ✅ | ✅ |
 | **Templates:** **`.gitconfig`**, **`.commonrc`** | ✅ only | ❌ |
-| **Templates:** language-specific **`run_all_unit_tests.sh`**, **`.editorconfig`**, **`.gitattributes`**, **`.gitignore`**, **`.vimrc`**, **`.vscode/settings.json`** | ❌ (legacy trees frozen) | ✅ only |
-
-**Freeze:** do **not** add new language directories or expand the product catalogs under **`settings.json/`** or **`gitattributes/`**. Fix defects in place if required; new work belongs under **misc-dev-scripts** `templates/`.
+| **Templates:** language-specific **`run_all_unit_tests.sh`**, **`.editorconfig`**, **`.gitattributes`**, **`.gitignore`**, **`.vimrc`**, **`.vscode/settings.json`** | ❌ | ✅ only |
 
 
 ## Bash/Zsh run-scripts
@@ -89,36 +83,9 @@ Sibling project: [**misc-dev-scripts**](https://github.com/synesissoftware/misc-
   * `simple` pull behaviour.
 
 
-## VS Code settings (legacy catalog)
-
-> **Deprecated for new work — prefer misc-dev-scripts 0.6.0+.** Canonical home: **misc-dev-scripts** `templates/vscode/`. This tree remains until Phase 3 removal.
-
-Drop-in workspace settings are provided as **.vscode/settings.json** templates under **settings.json/**.
-
-* Language-specific templates cover C, C++, C#, Go, JavaScript, Python, Ruby, Rust, and Zig;
-* **settings.json/generic/settings.json** provides a union for mixed-language workspaces; and
-* templates establish shared formatting, whitespace, ruler, and language-tooling preferences without machine-specific paths.
-
-See [**settings.json/README.md**](./settings.json/README.md) for the template conventions, contents, and layout.
-
-
-## Git attributes (legacy catalog)
-
-> **Deprecated for new work — prefer misc-dev-scripts 0.6.0+.** Canonical home: **misc-dev-scripts** `templates/gitattributes/`. This tree remains until Phase 3 removal.
-
-Drop-in root **.gitattributes** templates are provided under **gitattributes/**.
-
-* Language-specific templates cover C, C++, C#, Go, JavaScript, Python, Ruby, Rust, and Zig;
-* **gitattributes/c_cxx/.gitattributes** combines the C and C++ rules for mixed native-language projects;
-* **gitattributes/generic/.gitattributes** provides a union of all language templates; and
-* templates normalise text to LF, identify common binaries, configure language-aware diffs, and mark common generated build paths.
-
-See [**gitattributes/README.md**](./gitattributes/README.md) for the template conventions, sources, and usage.
-
-
 ## Related projects
 
-A peer project providing development helpers and project drop-in templates is [**misc-dev-scripts**](https://github.com/synesissoftware/misc-dev-scripts).
+A peer project providing development helpers and project drop-in templates is [**misc-dev-scripts**](https://github.com/synesissoftware/misc-dev-scripts) (**0.6.0+** `templates/` and `shell-scripts/`).
 
 
 ## Project Information
